@@ -106,30 +106,6 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="max-width:1280px;margin:0 auto">
 <p style="margin:0 0 clamp(20px,2.4vw,30px);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072;text-align:center">01 · Toward the Vow</p>
 <img src="assets/toward-the-vow.png" alt="Toward the Vow, five considered moments, from Design Session to Black Glove Delivery" style="display:block;width:100%;height:auto">
-<div style="display:flex;flex-wrap:wrap;gap:16px 56px;align-items:baseline;justify-content:space-between;padding:clamp(28px,3.2vw,44px) 0 clamp(24px,2.8vw,36px)">
-<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,42px);line-height:1.04;letter-spacing:.005em;max-width:22ch">Five considered moments.</h2>
-<p style="margin:0;max-width:40ch;font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.78;color:rgba(21,50,60,.84)">Every ring made at Ovoeu passes through the same five moments. Nothing rushed. Nothing repeated. You commit only when you say yes.</p>
-</div>
-
-<div class="hscroll" style="overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
-<div style="display:flex;flex-wrap:nowrap;align-items:stretch;gap:clamp(18px,2.2vw,32px)">
-<sc-for list="{{ beats }}" as="b" hint-placeholder-count="5">
-<article style="flex:1 1 0;min-width:146px;padding:clamp(22px,2.2vw,30px) 0 clamp(20px,2.2vw,30px);border-top:1px solid rgba(21,50,60,.2);display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:10px">
-<span style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,3.6vw,54px);line-height:.85;color:#2F6072">{{ b.n }}</span>
-<span style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#15323C;line-height:1.5">{{ b.title }}</span>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;line-height:1.3;color:#2F6072">{{ b.line }}</span>
-</div>
-<sc-for list="{{ b.body }}" as="p" hint-placeholder-count="1">
-<p style="margin:0;font-size:14px;line-height:1.8;color:rgba(21,50,60,.84)">{{ p }}</p>
-</sc-for>
-<sc-if value="{{ b.free }}" hint-placeholder-val="{{ false }}">
-<span style="margin-top:auto;align-self:flex-start;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#2F6072;border:1px solid rgba(47,96,114,.45);padding:5px 9px">Complimentary</span>
-</sc-if>
-</article>
-</sc-for>
-</div>
-</div>
 </div>
 </section>
 
@@ -652,17 +628,6 @@ class Component extends DCLogic {
 
     const tabs = tabDefs.map((d) => mk(d[0], d[1], d[2], d[3]));
 
-    const beats = [
-      { n: '01', title: 'Design Session', line: 'Your direction, discovered.', free: true, body: [
-        'An unhurried introduction to lab-grown diamonds, metal options, design process, and pricing. Led by your Ovoeu Concierge: no pressure, nothing to buy, nothing to decide.',
-        'We build your Discovery Board together. Your aesthetic, your metal, your proportions, your story. It becomes the brief before a single line is drawn.'
-      ] },
-      { n: '02', title: 'Technical Drawing', line: 'The form, made exact.', free: true, body: ['Your design takes shape in three dimensions. Every prong, every millimeter, every angle refined until the render matches the ring you will wear.'] },
-      { n: '03', title: 'The Fitting', line: 'Worn before it is final.', free: true, body: ['We cast your design in silver or brass. You hold the ring, wear it for a week, live with it. Any adjustment happens now, before gold or platinum ever touches the piece.'] },
-      { n: '04', title: 'In the Workshop', line: 'Finished by hand.', free: false, body: ['Your final piece is cast in gold or platinum and hand-finished in our Los Angeles and New York workshops. Every detail perfected under magnification.'] },
-      { n: '05', title: 'Black Glove Delivery', line: 'Your design, fulfilled.', free: false, body: ['Presented in person at the atelier, or delivered under insured cover wherever you are. Boxed, appraised, and ready for the day you say the words.'] }
-    ];
-
     const facts = [
       { k: '01', v: 'Couple at a time' },
       { k: '5', v: 'Moments, every ring' },
@@ -803,7 +768,7 @@ class Component extends DCLogic {
       policyTitle: pol ? pol.title : '',
       policyMeta: pol ? pol.meta : '',
       policyBlocks: pol ? pol.blocks : [],
-      tabs, beats, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
+      tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
