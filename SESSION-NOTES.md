@@ -72,20 +72,49 @@ Editions (SOON) · Book · FAQ · then the Concierge and sign-in icons.
 
 ## Open items
 
-1. **Photography.** Labeled image slots waiting on real shots:
+1. **Hero video is broken and disabled.** `showHeroVideo` now defaults to `false`.
+   The hotlinked MP4 (`vid.cdn-website.com/.../Untitled+design-v.mp4`) is corrupted —
+   confirmed with Playwright that it fails to decode in Chromium even when
+   downloaded and played locally with no network involved at all (`readyState`
+   stays `0`, `networkState` stays `NETWORK_NO_SOURCE`). Needs a fresh export from
+   whoever produced it, hosted from `assets/` instead of the third-party CDN, then
+   flip `showHeroVideo` back to `true`. The `autoPlay`/`playsInline`/`muted`
+   attributes on the `<video>` tag are already fixed and ready for that file.
+2. **Photography.** Labeled image slots waiting on real shots:
    atelier interior (wide), bench detail, Discovery Board, 3 home Edition cards,
    3 Editions hero stills, Contact hero (4:5, ring on light-blue ground).
-2. **Terms of Service copy.** Three sections marked "copy needed": using this site,
+3. **Terms of Service copy.** Three sections marked "copy needed": using this site,
    intellectual property, limitation of liability & governing law. No source copy
    exists on the live site. Privacy and Refund & Returns are verbatim from live.
-3. **Editions content is draft.** Bearing / Threshold / Quiet Signet — names, stories,
+4. **Editions content is draft.** Bearing / Threshold / Quiet Signet — names, stories,
    and specs are placeholders written about the *designs* (not invented client
    stories). Replace with the real pieces.
-4. **Map embed** was removed with the Oklahoma City Atelier section. Can go into
+5. **Map embed** was removed with the Oklahoma City Atelier section. Can go into
    Contact's right column if wanted.
-5. **Sign-in icon** in the nav is CSS-drawn. Swap for a real icon if there is one.
-6. **Canela** licensing (see Type above).
+6. **Sign-in icon** in the nav is CSS-drawn. Swap for a real icon if there is one.
+7. **Canela** licensing (see Type above).
+
+## Mobile/responsive audit (2026-09-06)
+
+Full desktop + mobile pass with Playwright against the live Pages URL. Fixed:
+
+- **Nav overflow.** `<nav>` combined `justify-content:center` with
+  `overflow-x:auto` and `flex-wrap:nowrap`; below ~820px the centered overflow
+  hid the first tab and the concierge/account icons on load, with no scrollbar
+  to reveal them. Now `justify-content:flex-start` by default (first tab always
+  visible) and centered again only at `min-width:900px`, where it actually fits —
+  same look as before on desktop.
+- **Five-step row overflow.** Same class of issue: the 5-card row needs ~810px
+  and never wraps, so most phones only showed 2 of 5 steps. It already scrolled
+  correctly (starts at card 01), it just had zero affordance — hidden scrollbar,
+  no hint. Both this row and the nav now share a `.hscroll` class that fades the
+  right edge via `mask-image` when content can overflow, removed above 900px.
+- Hero video — see Open items above.
+
+No other layout issues found; Editions/FAQ/Contact/Legal already reflow cleanly
+to single-column on mobile.
 
 ## Tweaks (props on the root DC)
 
-`showHeroVideo`, `showEditionsPreview`, `editionsMode` (Email capture / Type only).
+`showHeroVideo` (default `false` — see Open items), `showEditionsPreview`,
+`editionsMode` (Email capture / Type only).
