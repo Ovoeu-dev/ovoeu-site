@@ -27,6 +27,8 @@ input,textarea,select{font:inherit;color:inherit}
 a{color:#224C5A;text-decoration:none;border-bottom:1px solid rgba(34,76,90,.28);transition:color .2s,border-color .2s}
 a:hover{color:#2F6072;border-color:#2F6072}
 @keyframes ovRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hscroll{mask-image:linear-gradient(to right,black calc(100% - 28px),transparent);-webkit-mask-image:linear-gradient(to right,black calc(100% - 28px),transparent)}
+@media (min-width:900px){.site-nav{justify-content:center!important}.site-nav.hscroll{mask-image:none;-webkit-mask-image:none}}
 </style>
 </helmet>
 
@@ -39,7 +41,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <img src="assets/ovoeu-wordmark.png" alt="Ovoeu" style="display:block;height:clamp(24px,2.4vw,32px);width:auto">
 </button>
 
-<nav style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 4px;justify-content:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
+<nav class="site-nav hscroll" style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 4px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
 <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
 <button onClick="{{ t.onClick }}" style="flex:none;padding:6px 10px 8px;display:flex;flex-direction:column;align-items:center;gap:0">
 <span style="display:flex;align-items:baseline;gap:5px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap;transition:color .2s">
@@ -77,7 +79,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 
 <section style="position:relative;height:min(86vh,880px);min-height:540px;overflow:hidden;background:#15323C">
 <sc-if value="{{ showHeroVideo }}" hint-placeholder-val="{{ true }}">
-<video autoplay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsinline="{{ true }}" src="https://vid.cdn-website.com/2080ddda/videos/PSFzdupTuakQ0OFCvhdr_Untitled+design-v.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+<video autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" src="https://vid.cdn-website.com/2080ddda/videos/PSFzdupTuakQ0OFCvhdr_Untitled+design-v.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
 </sc-if>
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,60,.62) 0%,rgba(21,50,60,.48) 45%,rgba(21,50,60,.86) 100%)"></div>
 <div style="position:relative;height:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(48px,7vw,88px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(20px,3vw,34px)">
@@ -109,7 +111,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <p style="margin:0;max-width:40ch;font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.78;color:rgba(21,50,60,.84)">Every ring made at Ovoeu passes through the same five moments. Nothing rushed. Nothing repeated. You commit only when you say yes.</p>
 </div>
 
-<div style="overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
+<div class="hscroll" style="overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
 <div style="display:flex;flex-wrap:nowrap;align-items:stretch;gap:clamp(18px,2.2vw,32px)">
 <sc-for list="{{ beats }}" as="b" hint-placeholder-count="5">
 <article style="flex:1 1 0;min-width:146px;padding:clamp(22px,2.2vw,30px) 0 clamp(20px,2.2vw,30px);border-top:1px solid rgba(21,50,60,.2);display:flex;flex-direction:column;gap:14px">
@@ -587,7 +589,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
   state = { route: 'home', active: 'journey', faq: 0, subscribed: false };
 
@@ -802,7 +804,7 @@ class Component extends DCLogic {
       policyMeta: pol ? pol.meta : '',
       policyBlocks: pol ? pol.blocks : [],
       tabs, beats, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
-      showHeroVideo: this.props.showHeroVideo ?? true,
+      showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
       subscribed: this.state.subscribed, notSubscribed: !this.state.subscribed,
