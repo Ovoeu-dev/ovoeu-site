@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ovoeu — Bespoke Lab-Grown Jewelry Atelier | Oklahoma City</title>
+<meta name="description" content="Ovoeu is a bespoke lab-grown jewelry atelier in Oklahoma City, designing engagement rings and heirloom pieces with you. Complimentary CAD, a prototype yours to keep, in person or virtual.">
+<link rel="icon" href="assets/ovoeu-icon.png">
+<meta property="og:title" content="Ovoeu — for those who vow.">
+<meta property="og:description" content="Bespoke lab-grown jewelry, designed with you. Oklahoma City and virtual, nationwide.">
+<meta property="og:image" content="assets/ovoeu-wordmark.png">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F4F6F6;color:#15323C;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:#224C5A;text-decoration:none;border-bottom:1px solid rgba(34,76,90,.28);transition:color .2s,border-color .2s}
+a:hover{color:#2F6072;border-color:#2F6072}
+@keyframes ovRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#F4F6F6">
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(244,246,246,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(21,50,60,.12)">
+<div style="max-width:1280px;margin:0 auto;padding:18px clamp(20px,5vw,56px) 4px;display:flex;flex-wrap:wrap;gap:8px 32px;align-items:center;justify-content:center">
+
+<button onClick="{{ goHome }}" style="flex:none;display:block;padding:2px 0" aria-label="Ovoeu home">
+<img src="assets/ovoeu-wordmark.png" alt="Ovoeu" style="display:block;height:clamp(24px,2.4vw,32px);width:auto">
+</button>
+
+<nav style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 4px;justify-content:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+<button onClick="{{ t.onClick }}" style="flex:none;padding:6px 10px 8px;display:flex;flex-direction:column;align-items:center;gap:0">
+<span style="display:flex;align-items:baseline;gap:5px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap;transition:color .2s">
+<span style="{{ t.labelStyle }}">{{ t.label }}</span>
+<sc-if value="{{ t.soon }}" hint-placeholder-val="{{ false }}"><span style="font-size:7.5px;letter-spacing:.14em;color:#2F6072;border:1px solid rgba(47,96,114,.4);border-radius:2px;padding:1px 3px">SOON</span></sc-if>
+</span>
+<span style="{{ t.rule }}"></span>
+</button>
+</sc-for>
+
+<span style="flex:none;width:1px;height:16px;background:rgba(21,50,60,.2);margin:0 8px 0 12px"></span>
+
+<button onClick="{{ goContact }}" title="Concierge" aria-label="Concierge" style="flex:none;padding:4px 10px 6px;display:flex;flex-direction:column;align-items:center;gap:4px">
+<img src="assets/ovoeu-icon.png" alt="" style="display:block;height:22px;width:auto">
+<span style="{{ conciergeRule }}"></span>
+</button>
+
+<a href="https://ovoeustores.zcrmportals.com/portal/OvoeuStores/crm/login.sas" title="Client Portal sign in" aria-label="Client Portal sign in" style="flex:none;padding:4px 10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(21,50,60,.66);border-bottom:0" style-hover="color:#15323C">
+<span style="position:relative;display:block;width:17px;height:19px">
+<span style="position:absolute;top:1px;left:4px;width:9px;height:9px;border:1.5px solid currentColor;border-radius:50%"></span>
+<span style="position:absolute;bottom:2px;left:0;width:17px;height:8px;border:1.5px solid currentColor;border-bottom:0;border-radius:9px 9px 0 0"></span>
+</span>
+<span style="display:block;width:100%;height:1px;background:transparent"></span>
+</a>
+</nav>
+
+</div>
+</header>
+
+<main style="flex:1">
+
+<!-- ══════════ HOME ══════════ -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div>
+
+<section style="position:relative;height:min(86vh,880px);min-height:540px;overflow:hidden;background:#15323C">
+<sc-if value="{{ showHeroVideo }}" hint-placeholder-val="{{ true }}">
+<video autoplay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsinline="{{ true }}" src="https://vid.cdn-website.com/2080ddda/videos/PSFzdupTuakQ0OFCvhdr_Untitled+design-v.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+</sc-if>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,60,.62) 0%,rgba(21,50,60,.48) 45%,rgba(21,50,60,.86) 100%)"></div>
+<div style="position:relative;height:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(48px,7vw,88px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(20px,3vw,34px)">
+<p style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(19px,2.4vw,30px);color:#A4BAC2;letter-spacing:.01em;animation:ovRise .8s ease both">for those who vow.</p>
+<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,8.6vw,124px);line-height:.92;letter-spacing:.005em;color:#F4F6F6;max-width:14ch;text-wrap:balance;animation:ovRise 1s .1s ease both">The <span style="white-space:nowrap">Lab-Grown</span> Atelier</h1>
+<div style="display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;animation:ovRise 1s .2s ease both">
+<button onClick="{{ goContact }}" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:11px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#A4BAC2">Book a Design Session</button>
+<button onClick="{{ toJourney }}" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,246,246,.75);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">See the five moments ↓</button>
+</div>
+</div>
+</section>
+
+<div style="background:#15323C;color:rgba(244,246,246,.72);border-top:1px solid rgba(164,186,194,.18)">
+<div style="max-width:1280px;margin:0 auto;padding:16px clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:10px 40px;justify-content:space-between;font-size:10px;letter-spacing:.24em;text-transform:uppercase">
+<span>Design Session · Complimentary</span>
+<span>CAD · Complimentary</span>
+<span>Prototype · Yours to keep</span>
+<span>Oklahoma City &amp; Virtual</span>
+</div>
+</div>
+
+<!-- The Journey -->
+<section id="sec-journey" style="padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:1280px;margin:0 auto">
+<p style="margin:0 0 clamp(20px,2.4vw,30px);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072;text-align:center">01 · Toward the Vow</p>
+<img src="assets/toward-the-vow.png" alt="Toward the Vow, five considered moments, from Design Session to Black Glove Delivery" style="display:block;width:100%;height:auto">
+<div style="display:flex;flex-wrap:wrap;gap:16px 56px;align-items:baseline;justify-content:space-between;padding:clamp(28px,3.2vw,44px) 0 clamp(24px,2.8vw,36px)">
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,42px);line-height:1.04;letter-spacing:.005em;max-width:22ch">Five considered moments.</h2>
+<p style="margin:0;max-width:40ch;font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.78;color:rgba(21,50,60,.84)">Every ring made at Ovoeu passes through the same five moments. Nothing rushed. Nothing repeated. You commit only when you say yes.</p>
+</div>
+
+<div style="overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
+<div style="display:flex;flex-wrap:nowrap;align-items:stretch;gap:clamp(18px,2.2vw,32px)">
+<sc-for list="{{ beats }}" as="b" hint-placeholder-count="5">
+<article style="flex:1 1 0;min-width:146px;padding:clamp(22px,2.2vw,30px) 0 clamp(20px,2.2vw,30px);border-top:1px solid rgba(21,50,60,.2);display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,3.6vw,54px);line-height:.85;color:#2F6072">{{ b.n }}</span>
+<span style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#15323C;line-height:1.5">{{ b.title }}</span>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;line-height:1.3;color:#2F6072">{{ b.line }}</span>
+</div>
+<sc-for list="{{ b.body }}" as="p" hint-placeholder-count="1">
+<p style="margin:0;font-size:14px;line-height:1.8;color:rgba(21,50,60,.84)">{{ p }}</p>
+</sc-for>
+<sc-if value="{{ b.free }}" hint-placeholder-val="{{ false }}">
+<span style="margin-top:auto;align-self:flex-start;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#2F6072;border:1px solid rgba(47,96,114,.45);padding:5px 9px">Complimentary</span>
+</sc-if>
+</article>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- The Difference -->
+<section id="sec-difference" style="background:#224C5A;color:#F4F6F6;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,5vw,80px)">
+<div>
+<p style="margin:0 0 14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">02 · The Ovoeu Difference</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5.2vw,70px);line-height:1.02;letter-spacing:.005em;max-width:19ch;text-wrap:pretty">Co-created, never pulled from a case.</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:26px;padding-top:clamp(0px,2vw,32px)">
+<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">The Design Session and CAD are complimentary. The prototype is yours to keep, or its cost is applied to your final ring. You commit only when you say yes.</p>
+<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">Every Ovoeu ring is designed around the couple who will wear it. You collaborate directly with our team in CAD, shaping a ring that exists for your story alone. Never selected from a retail display, never made in a batch, never seen on another hand.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:rgba(164,186,194,.25);margin-top:8px">
+<sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+<div style="background:#224C5A;padding:20px 18px;display:flex;flex-direction:column;gap:8px">
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;color:#A4BAC2">{{ f.k }}</span>
+<span style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72);line-height:1.6">{{ f.v }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Inside the Atelier -->
+<section id="sec-atelier" style="padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(34px,4.5vw,72px);align-items:center">
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">03 · Inside the Atelier</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:.005em;max-width:20ch">A working space, not a showroom.</h2>
+<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Butcher-block design tables. Deep teal walls. A quiet room where couples sit, sketch, and decide.</p>
+<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Our Design Session is a conversation, not a transaction. Come to Oklahoma City, or meet with us virtually from anywhere in the country. Either way, we make time for you. Only you.</p>
+<button onClick="{{ goContact }}" style="align-self:flex-start;margin-top:4px;border:1px solid #15323C;background:#15323C;color:#F4F6F6;padding:14px 28px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#15323C">Visit the atelier</button>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="grid-column:1 / -1;aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px">
+<span style="font:400 10px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Atelier interior · wide shot<br>drop image here</span>
+</div>
+<div style="aspect-ratio:1;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px">
+<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Bench detail</span>
+</div>
+<div style="aspect-ratio:1;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px">
+<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Discovery Board</span>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- Editions preview -->
+<sc-if value="{{ showEditionsPreview }}" hint-placeholder-val="{{ true }}">
+<section id="sec-editions-preview" style="background:#E9EEF0;padding:clamp(64px,8vw,110px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
+<div style="max-width:1280px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between;padding-bottom:30px;border-bottom:1px solid rgba(21,50,60,.16)">
+<div>
+<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">04 · Editions</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline">
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em">Latest from Editions</h2>
+<span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#2F6072;border:1px solid rgba(47,96,114,.45);padding:3px 6px">Shop coming soon</span>
+</div>
+<p style="margin:14px 0 0;max-width:52ch;font-size:14.5px;line-height:1.78;color:rgba(21,50,60,.84)">Designs we have already made, released with the story each was built around. Online ordering is in build. For now, every Edition is commissioned by conversation.</p>
+</div>
+<button onClick="{{ goEditions }}" style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72);border-bottom:1px solid rgba(21,50,60,.25);padding-bottom:3px" style-hover="color:#15323C">All editions →</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(16px,2vw,28px);padding-top:clamp(24px,3vw,40px)">
+<sc-for list="{{ editions }}" as="e" hint-placeholder-count="3">
+<button onClick="{{ goEditions }}" style="display:flex;flex-direction:column;gap:14px;text-align:left">
+<span style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 10px,#E7EDEF 10px 20px);display:flex;align-items:flex-end;justify-content:flex-start;padding:16px">
+<span style="font:400 9.5px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">{{ e.slot }}</span>
+</span>
+<span style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2F6072">{{ e.tag }}</span>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:24px;line-height:1.1">{{ e.name }}</span>
+<span style="font-size:13px;line-height:1.7;color:rgba(21,50,60,.8)">{{ e.note }}</span>
+<span style="margin-top:2px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#2F6072">Inquire →</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
+<!-- Book -->
+<section id="sec-book" style="background:#15323C;color:#F4F6F6;padding:clamp(72px,9vw,140px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:26px;align-items:center">
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">05 · Book your Design Session</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,6vw,80px);line-height:1;letter-spacing:.005em;text-wrap:balance">Nothing to buy. Nothing to decide.</h2>
+<p style="margin:0;max-width:56ch;font-size:clamp(15px,1.2vw,17.5px);line-height:1.8;color:rgba(244,246,246,.8)">Book your Design Session at The Ovoeu Atelier in Oklahoma City, or virtually from anywhere in the country. Expect an unhurried, complimentary conversation. No pressure.</p>
+<button onClick="{{ goContact }}" style="margin-top:6px;border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:16px 34px;font-size:11px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#A4BAC2">Book a Design Session</button>
+<p style="margin:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72)">60–90 minutes · Complimentary · Oklahoma City or virtual</p>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="sec-faq" style="padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(30px,4vw,72px)">
+<div>
+<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">06 · Frequently Asked</p>
+<h2 style="margin:0 0 22px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em;max-width:16ch">Questions, answered plainly.</h2>
+<button onClick="{{ goFaqPage }}" style="align-self:flex-start;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72);border-bottom:1px solid rgba(21,50,60,.28);padding-bottom:3px" style-hover="color:#15323C">See all questions →</button>
+</div>
+<div style="border-top:1px solid rgba(21,50,60,.16)">
+<sc-for list="{{ faqs }}" as="f" hint-placeholder-count="3">
+<div style="border-bottom:1px solid rgba(21,50,60,.16)">
+<button onClick="{{ f.onClick }}" style="width:100%;display:flex;gap:20px;align-items:baseline;justify-content:space-between;padding:22px 0;text-align:left">
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,1.7vw,25px);line-height:1.25">{{ f.q }}</span>
+<span style="{{ f.iconStyle }}">+</span>
+</button>
+<div style="{{ f.bodyStyle }}">
+<p style="margin:0;padding:0 0 24px;max-width:62ch;font-size:14.5px;line-height:1.82;color:rgba(21,50,60,.84)">{{ f.a }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+</div>
+</sc-if>
+
+<!-- ══════════ EDITIONS ══════════ -->
+<sc-if value="{{ isEditions }}" hint-placeholder-val="{{ false }}">
+<div>
+<section style="position:relative;overflow:hidden;background:#15323C;color:#F4F6F6;padding:clamp(64px,8vw,132px) clamp(20px,5vw,56px)">
+<img src="https://irp.cdn-website.com/2080ddda/dms3rep/multi/opt/imageye___-_imgi_1_uri_ifs-3A-2F-2FM-2FNfo3LwR6QnYw3zq2wzdx88d7_SVN4yqa3demGmDhYcs-1920w.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(30px) saturate(.4);opacity:.24;transform:scale(1.14)">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,60,.78),rgba(21,50,60,.95))"></div>
+<div style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(22px,3vw,34px)">
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">Ovoeu Editions</p>
+<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,7.4vw,108px);line-height:.94;letter-spacing:.005em;max-width:17ch">Designs, and the stories they carry.</h1>
+<p style="margin:0;max-width:56ch;font-size:clamp(15px,1.25vw,18px);line-height:1.8;color:rgba(244,246,246,.86)">An Edition is a design we have already made, released with the story it was built around. Each one can be commissioned as it stands, or taken as the starting point for your own.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;padding-top:6px">
+<button onClick="{{ goContact }}" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:14px 30px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#A4BAC2">Inquire</button>
+<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72)">Online ordering opens soon</span>
+</div>
+</div>
+</section>
+
+<section style="padding:clamp(40px,5vw,76px) clamp(20px,5vw,56px) clamp(20px,3vw,40px)">
+<div style="max-width:1180px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:14px 40px;align-items:baseline;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid rgba(21,50,60,.16)">
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.05;letter-spacing:.005em">Now showing</h2>
+<p style="margin:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(21,50,60,.72)">Three editions · Commission by conversation</p>
+</div>
+<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
+<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 01 · Bearing<br>hero still</span>
+</div>
+<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 01</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Bearing</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Made to disappear under a work glove.</span>
+</div>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A low-set oval on a knife-edge band. The stone drops as far into the shank as the setting allows, so nothing catches. Built for a hand that works.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story it carries is about not taking the ring off. Everything decorative was removed until only that idea was left.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stone</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown oval, 1.80ct</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">Platinum</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Setting</span><span style="font-size:14px;line-height:1.5;color:#15323C">Low-set four-prong</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">6–8 weeks</span></div>
+</div>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+</div>
+</article>
+<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
+<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 02 · Threshold<br>hero still</span>
+</div>
+<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 02</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Threshold</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Three stones: what was, what is, what is still ahead.</span>
+</div>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A trilogy set with deliberate asymmetry. The outer stones are cut differently from the centre, so the eye reads a sequence rather than a symmetry.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story is a doorway. It was designed for the moment before a decision, not after it.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stones</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown, 0.60 / 1.20 / 0.60ct</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">18k yellow gold</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Setting</span><span style="font-size:14px;line-height:1.5;color:#15323C">Shared-prong trilogy</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">7–9 weeks</span></div>
+</div>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+</div>
+</article>
+<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
+<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 03 · Quiet Signet<br>hero still</span>
+</div>
+<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 03</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Quiet Signet</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Engraved inside only, where no one else reads it.</span>
+</div>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A signet with a flush-inset diamond and a flat face left deliberately plain. All the ornament lives on the inner wall. A date, a line, a name, cut by hand.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story is privacy. A piece that says nothing outward and everything inward.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stone</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown round, 0.35ct flush-set</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">14k or 18k gold</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Finish</span><span style="font-size:14px;line-height:1.5;color:#15323C">Hand-engraved interior</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">5–7 weeks</span></div>
+</div>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+</div>
+</article>
+</div>
+</section>
+
+<section style="background:#E9EEF0;border-top:1px solid rgba(21,50,60,.16);padding:clamp(52px,6.5vw,100px) clamp(20px,5vw,56px)">
+<div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(32px,4.5vw,72px);align-items:start">
+<div style="display:flex;flex-direction:column;gap:18px">
+<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">In build</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.04;letter-spacing:.005em;max-width:20ch">The Ovoeu shop is on its way.</h2>
+<p style="margin:0;max-width:46ch;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84)">We are building a full online experience for Editions. Browse, configure, and order without leaving the page. Until it opens, every Edition is commissioned the way every Ovoeu piece is: by talking to us.</p>
+<sc-if value="{{ editionsTeaser }}" hint-placeholder-val="{{ false }}">
+<div style="max-width:480px;width:100%;padding-top:6px">
+<sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+<p style="margin:0;padding:16px 0;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F6072;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">You're on the list. We'll write once, when the shop opens.</p>
+</sc-if>
+<sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ onSubscribe }}" style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
+<input type="email" required="{{ true }}" placeholder="Email address" aria-label="Email address" style="flex:1 1 200px;min-width:0;background:#F4F6F6;border:1px solid rgba(21,50,60,.3);color:#15323C;padding:14px 16px;font-size:14px">
+<button type="submit" style="flex:none;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:14px 24px;font-size:10px;letter-spacing:.2em;text-transform:uppercase">Notify me</button>
+</form>
+<p style="margin:10px 0 0;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(21,50,60,.72)">One email. No newsletter.</p>
+</sc-if>
+</div>
+</sc-if>
+</div>
+<div style="display:grid;grid-template-columns:1fr;gap:1px;background:rgba(21,50,60,.16)">
+<sc-for list="{{ shopSoon }}" as="i" hint-placeholder-count="4">
+<div style="background:#E9EEF0;padding:20px 4px;display:flex;gap:16px;align-items:baseline">
+<span style="flex:none;font:400 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#2F6072">{{ i.no }}</span>
+<span style="display:flex;flex-direction:column;gap:5px">
+<span style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">{{ i.k }}</span>
+<span style="font-size:13.5px;line-height:1.6;color:rgba(21,50,60,.8)">{{ i.v }}</span>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background:#224C5A;color:#F4F6F6;padding:clamp(56px,7vw,110px) clamp(20px,5vw,56px)">
+<div style="max-width:840px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center">
+<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">Inquire</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.6vw,62px);line-height:1.02;letter-spacing:.005em;text-wrap:balance">Ask about an Edition.</h2>
+<p style="margin:0;max-width:52ch;font-size:clamp(14.5px,1.15vw,17px);line-height:1.8;color:rgba(244,246,246,.86)">Call or text and we'll walk you through the piece. Stone, metal, sizing, and what it would take to make it yours, or to make it the beginning of something else.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;padding-top:6px">
+<a href="tel:4054165034" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-bottom-color:#A4BAC2" style-hover="background:transparent;color:#A4BAC2">Call 405.416.5034</a>
+<a href="sms:8557726935" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Text 855.772.6935</a>
+<button onClick="{{ goContact }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Book a Design Session →</button>
+</div>
+</div>
+</section>
+</div>
+</sc-if>
+
+<!-- ══════════ CONTACT ══════════ -->
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<div>
+<section style="padding:clamp(52px,6.5vw,104px) clamp(20px,5vw,56px) clamp(52px,6.5vw,96px)">
+<div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(38px,5.5vw,88px);align-items:center">
+
+<div style="display:flex;flex-direction:column;gap:clamp(26px,3vw,38px);width:100%;max-width:560px;justify-self:center">
+<div style="display:flex;flex-direction:column;gap:16px;text-align:center">
+<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Ovoeu Concierge</p>
+<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:.005em">Contact Us</h1>
+<p style="margin:0 auto;max-width:46ch;font-size:14.5px;line-height:1.8;color:rgba(21,50,60,.84)">No question is too small and no request too large. Choosing a stone, sizing a band, or beginning a bespoke design. In the Oklahoma City atelier or virtually from anywhere in the country, we make time for you. Only you.</p>
+</div>
+
+<div style="border-top:1px solid rgba(21,50,60,.16)">
+<sc-for list="{{ channels }}" as="c" hint-placeholder-count="6">
+<button onClick="{{ c.act }}" style="width:100%;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:19px 8px;text-align:left;border-bottom:1px solid rgba(21,50,60,.16);transition:background .2s" style-hover="background:#E9EEF0">
+<span style="display:flex;gap:16px;align-items:baseline;min-width:0">
+<span style="flex:none;font:400 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#2F6072;padding-top:2px">{{ c.no }}</span>
+<span style="display:flex;flex-direction:column;gap:5px;min-width:0">
+<span style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">{{ c.label }}</span>
+<span style="font-size:13px;line-height:1.55;color:rgba(21,50,60,.8)">{{ c.hint }}</span>
+</span>
+</span>
+<span style="flex:none;font-family:'Jost',sans-serif;font-size:19px;line-height:1;color:#2F6072">›</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
+<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Hero still · ring on<br>light-blue ground<br><br>drop image here</span>
+</div>
+<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+</div>
+</div>
+</section>
+
+</div>
+</sc-if>
+
+<!-- ══════════ ALL QUESTIONS ══════════ -->
+<sc-if value="{{ isFaqPage }}" hint-placeholder-val="{{ false }}">
+<div>
+<section style="padding:clamp(52px,6.5vw,100px) clamp(20px,5vw,56px) clamp(30px,4vw,52px);border-bottom:1px solid rgba(21,50,60,.16)">
+<div style="max-width:900px;margin:0 auto">
+<p style="margin:0 0 14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Frequently Asked</p>
+<h1 style="margin:0 0 20px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5.2vw,68px);line-height:1;letter-spacing:.005em;max-width:22ch">Straight answers to the questions couples ask most.</h1>
+<p style="margin:0;max-width:52ch;font-size:clamp(14.5px,1.15vw,17px);line-height:1.8;color:rgba(21,50,60,.84)">No marketing. If something here is still unclear, call or text and ask us directly.</p>
+</div>
+</section>
+
+<section style="padding:clamp(40px,5vw,76px) clamp(20px,5vw,56px) clamp(56px,7vw,110px)">
+<div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+<sc-for list="{{ faqGroups }}" as="g" hint-placeholder-count="4">
+<div>
+<div style="display:flex;gap:16px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid rgba(21,50,60,.16)">
+<span style="flex:none;font:400 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#2F6072">{{ g.no }}</span>
+<h2 style="margin:0;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#15323C">{{ g.title }}</h2>
+</div>
+<sc-for list="{{ g.items }}" as="q" hint-placeholder-count="2">
+<div style="padding:clamp(26px,3vw,38px) 0;border-bottom:1px solid rgba(21,50,60,.16);display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(22px,2.4vw,32px);line-height:1.16;letter-spacing:.005em;max-width:34ch">{{ q.q }}</h3>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.85;color:rgba(21,50,60,.84);max-width:66ch">{{ q.a }}</p>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#224C5A;color:#F4F6F6;padding:clamp(52px,6.5vw,104px) clamp(20px,5vw,56px)">
+<div style="max-width:840px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:20px;align-items:center">
+<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">Still wondering</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(28px,4.2vw,56px);line-height:1.02;letter-spacing:.005em;text-wrap:balance">Have a question that isn't here?</h2>
+<div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;padding-top:6px">
+<a href="tel:4054165034" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-bottom-color:#A4BAC2" style-hover="background:transparent;color:#A4BAC2">Call 405.416.5034</a>
+<a href="sms:8557726935" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Text 855.772.6935</a>
+<button onClick="{{ goContact }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Book a Design Session →</button>
+</div>
+</div>
+</section>
+</div>
+</sc-if>
+
+<!-- ══════════ POLICY PAGES ══════════ -->
+<sc-if value="{{ isPolicy }}" hint-placeholder-val="{{ false }}">
+<div>
+<section style="padding:clamp(48px,6vw,88px) clamp(20px,5vw,56px) clamp(26px,3.5vw,44px);border-bottom:1px solid rgba(21,50,60,.14)">
+<div style="max-width:820px;margin:0 auto">
+<p style="margin:0 0 14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Legal</p>
+<h1 style="margin:0 0 16px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5.4vw,66px);line-height:1;letter-spacing:.005em">{{ policyTitle }}</h1>
+<p style="margin:0 0 clamp(22px,2.6vw,32px);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(21,50,60,.72)">{{ policyMeta }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:2px 6px;align-items:center">
+<sc-for list="{{ policyNav }}" as="p" hint-placeholder-count="3">
+<button onClick="{{ p.onClick }}" style="border:1px solid rgba(21,50,60,.2);font-size:10px;letter-spacing:.2em;text-transform:uppercase">
+<span style="{{ p.style }}">{{ p.label }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+<section style="padding:clamp(40px,5vw,72px) clamp(20px,5vw,56px) clamp(64px,8vw,120px)">
+<div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(30px,3.4vw,48px)">
+<sc-for list="{{ policyBlocks }}" as="b" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 style="margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#15323C;padding-bottom:12px;border-bottom:1px solid rgba(21,50,60,.16)">{{ b.h }}</h2>
+<sc-for list="{{ b.p }}" as="t" hint-placeholder-count="2">
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.85;color:rgba(21,50,60,.84);max-width:70ch">{{ t }}</p>
+</sc-for>
+<sc-if value="{{ b.needsCopy }}" hint-placeholder-val="{{ false }}">
+<div style="background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);padding:22px 20px;border:1px solid rgba(21,50,60,.14)">
+<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(21,50,60,.78)">{{ b.needsCopy }}</span>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<div style="display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;padding-top:clamp(20px,2.4vw,32px);border-top:1px solid rgba(21,50,60,.16)">
+<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(21,50,60,.72)">Questions about this policy?</span>
+<button onClick="{{ goContact }}" style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#15323C;border-bottom:1px solid rgba(21,50,60,.3);padding-bottom:3px" style-hover="color:#2F6072">Contact us →</button>
+</div>
+</div>
+</section>
+</div>
+</sc-if>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="background:#15323C;color:rgba(244,246,246,.72)">
+<div style="max-width:1280px;margin:0 auto;padding:clamp(50px,6vw,86px) clamp(20px,5vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(30px,4vw,60px)">
+
+<div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+<button onClick="{{ goHome }}" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;text-align:left" aria-label="Ovoeu home">
+<img src="assets/ovoeu-wordmark.png" alt="Ovoeu" style="display:block;height:24px;width:auto;filter:brightness(0) invert(1);opacity:.95">
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:15px;color:#A4BAC2">for those who vow.</span>
+</button>
+<div style="display:flex;flex-direction:column;gap:7px;font-size:13px;line-height:1.65;color:rgba(244,246,246,.72)">
+<span>7527 North May Avenue<br>Oklahoma City, Oklahoma</span>
+<span>Monday–Saturday, 10:00AM–6:00PM</span>
+<span style="display:flex;flex-direction:column;gap:4px">
+<a href="tel:4054165034" style="color:rgba(244,246,246,.88);border-bottom-color:transparent" style-hover="color:#A4BAC2">405.416.5034</a>
+<a href="sms:8557726935" style="color:rgba(244,246,246,.88);border-bottom-color:transparent" style-hover="color:#A4BAC2">Text 855.772.6935</a>
+<a href="mailto:hello@ovoeu.com" style="color:rgba(244,246,246,.88);border-bottom-color:transparent" style-hover="color:#A4BAC2">hello@ovoeu.com</a>
+</span>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#A4BAC2">On the home page</span>
+<sc-for list="{{ footerSections }}" as="s" hint-placeholder-count="4">
+<button onClick="{{ s.onClick }}" style="text-align:left;font-size:13.5px;letter-spacing:.03em;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">{{ s.label }}</button>
+</sc-for>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#A4BAC2">Atelier</span>
+<button onClick="{{ goEditions }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Editions</button>
+<button onClick="{{ goContact }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Contact</button>
+<button onClick="{{ goFaqPage }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Frequently Asked</button>
+<button onClick="{{ goContact }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Book a Design Session</button>
+<a href="https://ovoeustores.zcrmportals.com/portal/OvoeuStores/crm/login.sas" style="font-size:13.5px;color:rgba(244,246,246,.72);border-bottom-color:transparent">Client Portal</a>
+</div>
+
+</div>
+
+<div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,56px)">
+<div style="margin-top:clamp(34px,4vw,56px);padding:20px 0;border-top:1px solid rgba(244,246,246,.14);display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between">
+<span style="display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center">
+<sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
+<a href="{{ s.href }}" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72);border-bottom-color:transparent" style-hover="color:#A4BAC2">{{ s.label }}</a>
+</sc-for>
+</span>
+<button onClick="{{ goContact }}" style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:14px;color:#A4BAC2;text-align:left;border-bottom:1px solid rgba(164,186,194,.4);padding-bottom:1px" style-hover="color:#F4F6F6;border-bottom-color:#F4F6F6">Oklahoma City &amp; virtual, nationwide</button>
+</div>
+<div style="padding:20px 0;border-top:1px solid rgba(244,246,246,.14);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72)">
+<span style="display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center">
+<sc-for list="{{ policyLinks }}" as="p" hint-placeholder-count="3">
+<button onClick="{{ p.onClick }}" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72)" style-hover="color:#A4BAC2">{{ p.label }}</button>
+</sc-for>
+</span>
+<span>© 2026 Ovoeu. All rights reserved.</span>
+</div>
+</div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
+class Component extends DCLogic {
+  state = { route: 'home', active: 'journey', faq: 0, subscribed: false };
+
+  secIds = ['journey', 'difference', 'atelier', 'editions-preview', 'book', 'faq'];
+
+  componentDidMount() {
+    this.onScroll = () => {
+      if (this.state.route !== 'home') return;
+      const y = window.scrollY + 200;
+      let cur = 'journey';
+      for (const id of this.secIds) {
+        const el = document.getElementById('sec-' + id);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= y) cur = id;
+      }
+      const map = { 'editions-preview': 'editions-preview' };
+      const next = map[cur] || cur;
+      if (next !== this.state.active) this.setState({ active: next });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  top() { window.scrollTo({ top: 0, behavior: 'auto' }); }
+
+  go(route) { this.setState({ route }, () => this.top()); }
+
+  jump(id) {
+    const doIt = () => {
+      const el = document.getElementById('sec-' + id);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' });
+    };
+    if (this.state.route !== 'home') this.setState({ route: 'home', active: id }, () => requestAnimationFrame(() => requestAnimationFrame(doIt)));
+    else { this.setState({ active: id }); doIt(); }
+  }
+
+  renderVals() {
+    const route = this.state.route;
+    const isHome = route === 'home';
+    const teal = '#15323C', gold = '#2F6072';
+
+    const tabDefs = [
+      ['journey', 'Toward the Vow', 'sec'],
+      ['difference', 'The Difference', 'sec'],
+      ['atelier', 'The Atelier', 'sec'],
+      ['editions', 'Editions', 'page', true],
+      ['book', 'Book', 'sec'],
+      ['faq', 'FAQ', 'sec']
+    ];
+
+    const mk = (id, label, kind, soon) => {
+      const on = kind === 'sec' ? ((isHome && this.state.active === id) || (id === 'faq' && route === 'faq-all')) : route === id;
+      return {
+        id, label, soon: !!soon,
+        onClick: kind === 'sec' ? () => this.jump(id) : () => this.go(id),
+        labelStyle: { color: on ? teal : 'rgba(21,50,60,.72)', fontWeight: on ? 500 : 400 },
+        rule: { display: 'block', width: '100%', height: '1px', marginTop: '7px', background: on ? '#2F6072' : 'transparent', transition: 'background .25s ease' }
+      };
+    };
+
+    const tabs = tabDefs.map((d) => mk(d[0], d[1], d[2], d[3]));
+
+    const beats = [
+      { n: '01', title: 'Design Session', line: 'Your direction, discovered.', free: true, body: [
+        'An unhurried introduction to lab-grown diamonds, metal options, design process, and pricing. Led by your Ovoeu Concierge: no pressure, nothing to buy, nothing to decide.',
+        'We build your Discovery Board together. Your aesthetic, your metal, your proportions, your story. It becomes the brief before a single line is drawn.'
+      ] },
+      { n: '02', title: 'Technical Drawing', line: 'The form, made exact.', free: true, body: ['Your design takes shape in three dimensions. Every prong, every millimeter, every angle refined until the render matches the ring you will wear.'] },
+      { n: '03', title: 'The Fitting', line: 'Worn before it is final.', free: true, body: ['We cast your design in silver or brass. You hold the ring, wear it for a week, live with it. Any adjustment happens now, before gold or platinum ever touches the piece.'] },
+      { n: '04', title: 'In the Workshop', line: 'Finished by hand.', free: false, body: ['Your final piece is cast in gold or platinum and hand-finished in our Los Angeles and New York workshops. Every detail perfected under magnification.'] },
+      { n: '05', title: 'Black Glove Delivery', line: 'Your design, fulfilled.', free: false, body: ['Presented in person at the atelier, or delivered under insured cover wherever you are. Boxed, appraised, and ready for the day you say the words.'] }
+    ];
+
+    const facts = [
+      { k: '01', v: 'Couple at a time' },
+      { k: '5', v: 'Moments, every ring' },
+      { k: '∞', v: 'Lifetime warranty' }
+    ];
+
+    const editions = [
+      { tag: 'Edition 01', name: 'Bearing', note: 'A low oval on a knife-edge band, made to disappear under a work glove.', slot: 'Edition 01 · Bearing' },
+      { tag: 'Edition 02', name: 'Threshold', note: 'Three stones: what was, what is, what is still ahead.', slot: 'Edition 02 · Threshold' },
+      { tag: 'Edition 03', name: 'Quiet Signet', note: 'Engraved inside only, where no one else reads it.', slot: 'Edition 03 · Quiet Signet' }
+    ];
+
+    const shopSoon = [
+      { no: '01', k: 'Browse & configure', v: 'Stone, metal, and finish options on every Edition, priced live.' },
+      { no: '02', k: 'Saved Discovery Boards', v: 'Your visual reference, kept in your account between sessions.' },
+      { no: '03', k: 'Edition releases', v: 'New designs posted as they leave the workshop, with their stories.' },
+      { no: '04', k: 'Insured delivery', v: 'Complimentary insured shipping and an appraisal with every piece.' }
+    ];
+
+    const faqSrc = [
+      { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing sold.' },
+      { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. The difference: transparent origin, better quality at larger sizes, no sourcing questions to answer, and prices that let us design freely without cutting corners on craft.' },
+      { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation. Your Ovoeu Concierge walks you through lab-grown stones, metal options, and design language. We build your Discovery Board together, a shared visual reference for your ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' }
+    ];
+    const faqs = faqSrc.map((f, i) => {
+      const open = this.state.faq === i;
+      return {
+        q: f.q, a: f.a,
+        onClick: () => this.setState({ faq: open ? -1 : i }),
+        iconStyle: { flex: 'none', fontFamily: "'Jost',sans-serif", fontSize: '20px', lineHeight: 1, color: open ? gold : 'rgba(21,50,60,.72)', transform: open ? 'rotate(45deg)' : 'none', transition: 'transform .3s ease, color .3s ease' },
+        bodyStyle: { overflow: 'hidden', maxHeight: open ? '460px' : '0px', opacity: open ? 1 : 0, transition: 'max-height .42s ease, opacity .3s ease' }
+      };
+    });
+
+    const channels = [
+      { no: '01', label: 'Call the atelier', hint: '405.416.5034', act: () => { window.location.href = 'tel:4054165034'; } },
+      { no: '02', label: 'Text us', hint: '855.772.6935 · Quick questions, quick answers', act: () => { window.location.href = 'sms:8557726935'; } },
+      { no: '03', label: 'Email us', hint: 'hello@ovoeu.com', act: () => { window.location.href = 'mailto:hello@ovoeu.com'; } },
+      { no: '04', label: 'Book a Design Session', hint: 'In the Oklahoma City atelier · Complimentary, 60–90 minutes', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041174', '_blank') },
+      { no: '05', label: 'Book a virtual session', hint: 'From anywhere in the country · Complimentary', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041010', '_blank') },
+      { no: '06', label: 'Visit us', hint: '7527 North May Avenue, Oklahoma City · Monday–Saturday, 10:00AM–6:00PM · By appointment', act: () => window.open('https://www.google.com/maps/place/Ovoeu/data=!4m2!3m1!1s0x0:0x365b8a39c4578de8', '_blank') }
+    ];
+
+    const faqGroups = [
+      { no: '01', title: 'The atelier', items: [
+        { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing sold.' },
+        { q: 'Do you have a showroom I can visit?', a: 'The Ovoeu Atelier is at 7527 North May Avenue in Oklahoma City. It is a working atelier rather than a traditional showroom. Quiet, unhurried, by appointment. Please book a Design Session before visiting so your Concierge can be prepared for you specifically.' }
+      ] },
+      { no: '02', title: 'Lab-grown diamonds', items: [
+        { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. The difference: transparent origin, better quality at larger sizes, no sourcing questions to answer, and prices that let us design freely without cutting corners on craft.' },
+        { q: 'Can I bring in a stone or metal I already own?', a: 'Yes. Heirloom stones, previously purchased diamonds, or existing metal can be incorporated into a new Ovoeu design. Bring the piece to your Design Session, or ship it in for a Virtual Design Session, and we will build the design around what you already have.' }
+      ] },
+      { no: '03', title: 'Design Sessions & process', items: [
+        { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation. Your Ovoeu Concierge walks you through lab-grown stones, metal options, and design language. We build your Discovery Board together, a shared visual reference for your ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' },
+        { q: 'How long does the process take?', a: 'Most engagement rings take 8 to 12 weeks from your first Design Session to delivery. This includes Discovery Board, CAD refinement, prototype approval, and hand-finishing at our Los Angeles and New York workshops. Faster timelines can be arranged when needed. Please tell your Concierge your date early.' }
+      ] },
+      { no: '04', title: 'Cost & commitment', items: [
+        { q: 'What does an Ovoeu ring cost?', a: 'Bespoke pricing depends on the stone, the metal, and the complexity of the setting. Ovoeu rings typically range from the mid-thousands to the mid-tens of thousands. Every quote is fully transparent, itemized, and free of retail markup layers. Your Concierge will build a working budget with you during your Design Session.' },
+        { q: 'When do I actually commit financially?', a: 'The Design Session and CAD phase are fully complimentary. No deposit, no commitment. At the prototype stage we collect a $250 deposit, which covers the exact cost of casting your silver prototype and shipping it to you. That deposit is applied in full toward your final ring if you proceed to production. If you decide not to proceed, the deposit covers the prototype, which is yours to keep. The only major financial commitment happens when you approve the final piece for casting in gold or platinum.' }
+      ] }
+    ];
+
+    const socials = [
+      { label: 'Instagram', href: 'https://www.instagram.com/ovoeuatelier/' },
+      { label: 'Pinterest', href: 'https://www.pinterest.com/ovoeuatelier/' },
+      { label: 'TikTok', href: 'https://www.tiktok.com/@ovoeuatelier' },
+      { label: 'Facebook', href: 'https://www.facebook.com/p/Ovoeu-61570022166713/' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/ovoeuatelier/' }
+    ];
+
+    const footerSections = [
+      { label: 'Toward the Vow', onClick: () => this.jump('journey') },
+      { label: 'The Ovoeu Difference', onClick: () => this.jump('difference') },
+      { label: 'Inside the Atelier', onClick: () => this.jump('atelier') },
+      { label: 'Latest from Editions', onClick: () => this.jump('editions-preview') }
+    ];
+
+    const policyNav = [
+      { key: 'privacy', label: 'Privacy Policy' },
+      { key: 'terms', label: 'Terms of Service' },
+      { key: 'refunds', label: 'Refund & Returns' }
+    ].map((p) => ({
+      label: p.label,
+      onClick: () => this.go(p.key),
+      style: { display: 'block', padding: '10px 15px', whiteSpace: 'nowrap', transition: 'background .2s, color .2s', background: route === p.key ? '#224C5A' : 'transparent', color: route === p.key ? '#F4F6F6' : 'rgba(21,50,60,.72)', fontWeight: route === p.key ? 500 : 400 }
+    }));
+
+    const policyLinks = [
+      { label: 'Privacy Policy', onClick: () => this.go('privacy') },
+      { label: 'Terms', onClick: () => this.go('terms') },
+      { label: 'Refund & Returns', onClick: () => this.go('refunds') }
+    ];
+
+    const POL = {
+      privacy: {
+        title: 'Privacy Policy',
+        meta: 'Applies to ovoeu.com · Last reviewed 2026',
+        blocks: [
+          { h: 'Overview', p: ['This policy explains how Ovoeu ("we") collects, uses, and protects your personal information when you visit ovoeu.com, book a consultation, or make a purchase.'] },
+          { h: 'What we collect', p: ['We collect information you provide directly (name, email, address, payment details, design preferences, and appointment information) as well as data collected automatically through cookies and analytics tools, including IP address, browser type, and pages visited.'] },
+          { h: 'How we use it', p: ['We use your information to process orders, schedule and conduct consultations, communicate order updates, send newsletters (if you opted in), and improve our website and services. We do not sell your data to third parties.'] },
+          { h: 'Who we share it with', p: ['We share data only with trusted service providers who help us operate our business, including our payment processor, shipping carriers, Zoho Bookings for appointments, and Google Analytics and Tag Manager. All providers are contractually bound to protect your information.', 'No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All of the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.'] },
+          { h: 'Cookies', p: ['Our site uses cookies for functionality, analytics (Google Analytics), and marketing (Google Tag Manager). You can disable cookies in your browser settings, though some features may not work as expected.'] },
+          { h: 'Your rights', p: ['You may request access to, correction of, or deletion of your personal data at any time. For all other requests, contact us using the details below.'] },
+          { h: 'Data security', p: ['We use SSL/TLS encryption and PCI-compliant payment processing to protect your data. No online system is 100% secure, but we take industry-standard precautions.'] },
+          { h: 'SMS terms', p: ['Message frequency varies per user. Message and data rates may apply. Text HELP for help. Text STOP to unsubscribe. Carriers are not liable for delayed or undelivered messages.'] }
+        ]
+      },
+      terms: {
+        title: 'Terms of Service',
+        meta: 'Placeholder structure · Copy needed',
+        blocks: [
+          { h: 'Using this site', p: [], needsCopy: 'Send your Terms of Service copy and it drops straight in here. The structure and type are already set.' },
+          { h: 'Orders & bespoke commissions', p: ['Bespoke pieces are commissioned through a Design Session. Cancellation and refund terms for custom work are governed by our Refund & Returns Policy.'] },
+          { h: 'SMS messaging', p: ['Message frequency varies per user. Message and data rates may apply. Text HELP for help. Text STOP to unsubscribe. Carriers are not liable for delayed or undelivered messages.'] },
+          { h: 'Intellectual property', p: [], needsCopy: 'Copy needed: site content, imagery, and design ownership.' },
+          { h: 'Limitation of liability & governing law', p: [], needsCopy: 'Copy needed: recommend your counsel supplies this section verbatim.' }
+        ]
+      },
+      refunds: {
+        title: 'Refund & Returns Policy',
+        meta: '30-day policy on non-custom items · Last reviewed 2026',
+        blocks: [
+          { h: 'Shipping', p: ['We provide complimentary insured shipping for all orders.'] },
+          { h: 'Return policy & cancellation terms', p: ['We offer a 30-day return and exchange policy for items that are not custom-made to order. Custom-made pieces are non-refundable and non-exchangeable due to their bespoke nature. Returns are not accepted after approval of all design steps, as each ring is uniquely tailored to the customer\u2019s preferences.', 'Cancellations are permitted during the design process but are not accepted once casting and manufacturing have commenced. Any post-delivery changes that were not specified initially may incur additional costs, which will be discussed with the client.', 'Returned items must be in their original packaging and undamaged. We recommend reviewing product details or consulting with a Client Advisor to understand any exclusions from our policies.'] },
+          { h: 'How to make a return or exchange', p: ['To initiate a return or exchange, contact our Client Care team via our website or email within 30 days of receiving your order. You will receive an insured return shipping label and packaging instructions.', 'Returned items must be postmarked within 30 days and must arrive in their original packaging, unused, unworn, and undamaged. Include all original packaging, gift boxes, diamond certificates (if applicable), and any other items from the original shipment. Jewelry must be returned in its original condition; we cannot accept items that show signs of wear, have been used, or altered in any way.', 'Use the provided cardboard shipping box or an appropriate carton for return shipping, and affix the prepaid, insured return label. Do not use the Ovoeu jewelry box as the shipping box.', 'Keep a record of your tracking number to monitor your return shipment. We are not responsible for any damages incurred during transit, so please ensure your item is properly packaged.'] },
+          { h: 'Warranty & service policy', p: ['Each item is handcrafted by expert bench jewelers and is supported by a comprehensive lifetime warranty against manufacturing defects. This warranty covers issues arising solely from manufacturing faults.', 'Our warranty does not cover general wear and tear, misuse, or damages such as scratches, discoloration from chemical exposure, warped metal, dents, misshapen bands, lost or cracked stones, or any other issues caused by human factors. Lost or stolen pieces are also excluded. Any repairs or services performed by jewelers other than Ovoeu will void the warranty.', 'For added protection, we offer the Jewelers Mutual Care plan, which covers issues beyond manufacturer defects and will be discussed during your consultation. Each item also includes a jewelry insurance appraisal for your peace of mind.'] }
+        ]
+      }
+    };
+    const pol = POL[route];
+
+    return {
+      isHome, isEditions: route === 'editions', isContact: route === 'contact',
+      isFaqPage: route === 'faq-all',
+      faqGroups,
+      isPolicy: !!pol,
+      policyTitle: pol ? pol.title : '',
+      policyMeta: pol ? pol.meta : '',
+      policyBlocks: pol ? pol.blocks : [],
+      tabs, beats, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
+      showHeroVideo: this.props.showHeroVideo ?? true,
+      showEditionsPreview: this.props.showEditionsPreview ?? true,
+      editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
+      subscribed: this.state.subscribed, notSubscribed: !this.state.subscribed,
+      goHome: () => this.go('home'),
+      goEditions: () => this.go('editions'),
+      goContact: () => this.go('contact'),
+      goFaqPage: () => this.go('faq-all'),
+      conciergeRule: { display: 'block', width: '100%', height: '1px', background: route === 'contact' ? '#2F6072' : 'transparent', transition: 'background .25s ease' },
+      toJourney: () => this.jump('journey'),
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ subscribed: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
