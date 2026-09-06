@@ -28,7 +28,7 @@ a{color:#224C5A;text-decoration:none;border-bottom:1px solid rgba(34,76,90,.28);
 a:hover{color:#2F6072;border-color:#2F6072}
 @keyframes ovRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .hscroll{mask-image:linear-gradient(to right,black calc(100% - 28px),transparent);-webkit-mask-image:linear-gradient(to right,black calc(100% - 28px),transparent)}
-@media (min-width:900px){.site-nav{justify-content:center!important}.site-nav.hscroll{mask-image:none;-webkit-mask-image:none}}
+@media (min-width:1024px){.site-nav{justify-content:center!important}.site-nav.hscroll{mask-image:none;-webkit-mask-image:none}}
 </style>
 </helmet>
 
@@ -41,9 +41,9 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <img src="assets/ovoeu-wordmark.png" alt="Ovoeu" style="display:block;height:clamp(24px,2.4vw,32px);width:auto">
 </button>
 
-<nav class="site-nav hscroll" style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 4px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
+<nav class="site-nav hscroll" style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 16px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
 <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
-<button onClick="{{ t.onClick }}" style="flex:none;padding:6px 10px 8px;display:flex;flex-direction:column;align-items:center;gap:0">
+<button onClick="{{ t.onClick }}" style="flex:none;padding:6px 14px 8px;display:flex;flex-direction:column;align-items:center;gap:0">
 <span style="display:flex;align-items:baseline;gap:5px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap;transition:color .2s">
 <span style="{{ t.labelStyle }}">{{ t.label }}</span>
 <sc-if value="{{ t.soon }}" hint-placeholder-val="{{ false }}"><span style="font-size:7.5px;letter-spacing:.14em;color:#2F6072;border:1px solid rgba(47,96,114,.4);border-radius:2px;padding:1px 3px">SOON</span></sc-if>
