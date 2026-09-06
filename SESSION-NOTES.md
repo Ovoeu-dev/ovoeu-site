@@ -30,8 +30,9 @@ knocked to white via `filter:brightness(0) invert(1)`), `assets/ovoeu-icon.png`
 Client-side routing via `state.route` in the logic class — no URLs/hashes.
 
 - **home** — tabbed sections, sticky nav with scroll-spy
-  1. Hero (existing site video)
-  2. `01 · Toward the Vow` — full-width illustration + five moments
+  1. Hero (video disabled, see Open items)
+  2. `01 · Toward the Vow` — full-width illustration; the five moments (01-05)
+     are labeled directly in the artwork, no separate text section
   3. `02 · The Ovoeu Difference`
   4. `03 · Inside the Atelier`
   5. `04 · Editions` preview (3 cards, "Shop coming soon")
@@ -80,7 +81,7 @@ Editions (SOON) · Book · FAQ · then the Concierge and sign-in icons.
    whoever produced it, hosted from `assets/` instead of the third-party CDN, then
    flip `showHeroVideo` back to `true`. The `autoPlay`/`playsInline`/`muted`
    attributes on the `<video>` tag are already fixed and ready for that file.
-2. **Photography.** Labeled image slots waiting on real shots:
+2. **Photography.** `Toward the Vow` banner is final (see below). Still waiting on:
    atelier interior (wide), bench detail, Discovery Board, 3 home Edition cards,
    3 Editions hero stills, Contact hero (4:5, ring on light-blue ground).
 3. **Terms of Service copy.** Three sections marked "copy needed": using this site,
@@ -99,20 +100,50 @@ Editions (SOON) · Book · FAQ · then the Concierge and sign-in icons.
 Full desktop + mobile pass with Playwright against the live Pages URL. Fixed:
 
 - **Nav overflow.** `<nav>` combined `justify-content:center` with
-  `overflow-x:auto` and `flex-wrap:nowrap`; below ~820px the centered overflow
-  hid the first tab and the concierge/account icons on load, with no scrollbar
-  to reveal them. Now `justify-content:flex-start` by default (first tab always
-  visible) and centered again only at `min-width:900px`, where it actually fits —
-  same look as before on desktop.
+  `overflow-x:auto` and `flex-wrap:nowrap`; below the overflow threshold the
+  centered overflow hid the first tab and the concierge/account icons on load,
+  with no scrollbar to reveal them. Now `justify-content:flex-start` by default
+  (first tab always visible) and centered again only at `min-width:1024px`
+  (`.site-nav` class), where it actually fits — same look as before on desktop.
+  Threshold was re-measured and this breakpoint bumped from 900px after the
+  nav-spacing pass below.
 - **Five-step row overflow.** Same class of issue: the 5-card row needs ~810px
   and never wraps, so most phones only showed 2 of 5 steps. It already scrolled
   correctly (starts at card 01), it just had zero affordance — hidden scrollbar,
-  no hint. Both this row and the nav now share a `.hscroll` class that fades the
-  right edge via `mask-image` when content can overflow, removed above 900px.
+  no hint. Both this row and the nav shared a `.hscroll` class that fades the
+  right edge via `mask-image` when content can overflow. This row itself was
+  later removed entirely (see Content updates) — the class/pattern is now only
+  on the nav, but kept generic in case another scroller needs it.
 - Hero video — see Open items above.
 
 No other layout issues found; Editions/FAQ/Contact/Legal already reflow cleanly
 to single-column on mobile.
+
+**Nav spacing (same day, follow-up).** Tab gap widened 4px → 16px and button
+padding 10px → 14px — `EDITIONS [SOON]` and `BOOK` were reading as crammed
+together. This increases the nav's natural width, which is why the
+flex-start/center breakpoint above moved to 1024px.
+
+## Content updates (2026-09-06)
+
+- Removed the "Five considered moments." heading, intro paragraph, and the
+  five step cards from Home — the new banner (below) has 01-05 labeled
+  directly in the artwork, so the text below it was fully redundant. Also
+  dropped the now-unused `beats` data array.
+- Replaced `assets/toward-the-vow.png` with the final high-res illustration,
+  saved as `assets/toward-the-vow.webp` (quality 95 — mean pixel diff vs the
+  source PNG is 1.6/255, visually indistinguishable) at 576KB instead of the
+  2.6MB source export. Update the `<img src>` in `Ovoeu Site.dc.html` if this
+  ever gets replaced again with a plain `.png`.
+- Capitalized "For those who vow." (hero, footer, `og:title`) — was lowercase
+  `for`.
+- **Known minor quirk:** even with `showHeroVideo: false`, one aborted fetch to
+  the hero video URL still fires on page load (confirmed no `<video>` element
+  ever mounts — `document.querySelectorAll('video').length` is `0` throughout).
+  Looks like the runtime (`support.js`) preloads media `src`s it finds in the
+  template independent of the surrounding conditional. Harmless — no visible
+  effect and not the full file — but not fixable from the template; would need
+  tracing through the minified runtime to actually stop it.
 
 ## Tweaks (props on the root DC)
 
