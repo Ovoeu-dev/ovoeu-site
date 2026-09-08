@@ -631,7 +631,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'home', active: 'journey', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false };
+  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false };
 
   secIds = ['journey', 'difference', 'atelier', 'story', 'editions-preview', 'book', 'faq'];
 
@@ -639,7 +639,7 @@ class Component extends DCLogic {
     this.onScroll = () => {
       if (this.state.route !== 'home') return;
       const y = window.scrollY + 200;
-      let cur = 'journey';
+      let cur = 'home';
       for (const id of this.secIds) {
         const el = document.getElementById('sec-' + id);
         if (el && el.getBoundingClientRect().top + window.scrollY <= y) cur = id;
@@ -831,7 +831,7 @@ class Component extends DCLogic {
     ];
 
     const mk = (id, label, kind) => {
-      const on = kind === 'home' ? (isHome && this.state.active === 'journey') : (isHome && this.state.active === id);
+      const on = isHome && this.state.active === id;
       const onClick = kind === 'home' ? () => this.go('home') : () => this.jump(id);
       return {
         id, label, onClick, ariaCurrent: on ? (kind === 'sec' ? 'location' : 'page') : 'false'
