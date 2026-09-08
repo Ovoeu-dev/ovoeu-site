@@ -86,8 +86,8 @@ a:hover{color:#2F6072;border-color:#2F6072}
 @keyframes ovInviteIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
 @keyframes ovFadeIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*[style*="animation:ovRise"],.ov-mobile-drawer,.ov-invite-backdrop,.ov-invite-panel{animation:none!important}.ov-nav-button::after,.ov-invitation-cta,.ov-text-link::after{transition:none}}
-@media (max-width:1100px){.ov-header-inner{grid-template-columns:minmax(116px,.62fr) minmax(500px,2.7fr) minmax(194px,.8fr);gap:12px;padding:0 22px}.ov-desktop-nav{gap:10px}.ov-nav-button{font-size:10px;letter-spacing:.11em}.ov-invitation-cta{padding-right:17px!important;padding-left:17px!important;letter-spacing:.13em!important}}
-@media (max-width:960px){.ov-header-inner{min-height:68px;grid-template-columns:1fr auto 1fr;padding:0 18px}.ov-wordmark{grid-column:2;grid-row:1;justify-self:center}.ov-wordmark img{height:27px}.ov-desktop-nav,.ov-header-inner>.ov-invitation-cta{display:none}.ov-mobile-menu{display:inline-flex;min-height:44px;align-items:center;color:#15323C;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.ov-mobile-menu{grid-column:1;grid-row:1;justify-self:start}.ov-concierge-cta{grid-column:3;grid-row:1}.ov-invite-panel{width:100%;padding:24px 26px 34px}}
+@media (max-width:1360px){.ov-header-inner{grid-template-columns:minmax(116px,.62fr) minmax(500px,2.7fr) minmax(194px,.8fr);gap:12px;padding:0 22px}.ov-desktop-nav{gap:clamp(6px,1vw,10px);justify-content:flex-start}.ov-nav-button{font-size:10px;letter-spacing:.09em}.ov-invitation-cta{padding-right:17px!important;padding-left:17px!important;letter-spacing:.13em!important}}
+@media (max-width:1010px){.ov-header-inner{min-height:68px;grid-template-columns:1fr auto 1fr;padding:0 18px}.ov-wordmark{grid-column:2;grid-row:1;justify-self:center}.ov-wordmark img{height:27px}.ov-desktop-nav{display:none}.ov-mobile-menu{display:inline-flex;min-height:44px;align-items:center;color:#15323C;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.ov-mobile-menu{grid-column:1;grid-row:1;justify-self:start}.ov-concierge-cta{grid-column:3;grid-row:1}.ov-invite-panel{width:100%;padding:24px 26px 34px}}
 @media (max-width:800px){.ov-story-frame{display:flex;flex-direction:column}.ov-story-copy{position:static;width:auto;transform:none;padding:34px 26px 24px}.ov-story-frame>img{order:2;min-height:260px;object-fit:cover;object-position:72% center}}
 @media (max-width:767px){.journey-banner{width:100vw!important;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}.ov-journey-mobile{position:static;display:grid;width:auto;height:auto;padding:0;margin:30px 0 0;overflow:visible;clip:auto;white-space:normal;border-top:1px solid rgba(21,50,60,.16)}.ov-journey-moment{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid rgba(21,50,60,.16)}.ov-journey-moment-no{font-family:'Instrument Serif',Georgia,serif;font-size:25px;line-height:1;color:#2F6072}.ov-journey-moment strong{display:block;font-size:12px;font-weight:500;letter-spacing:.13em;text-transform:uppercase}.ov-journey-moment em{display:block;margin-top:4px;font-family:'Instrument Serif',Georgia,serif;font-size:17px;font-weight:400;color:rgba(21,50,60,.76)}}
 </style>
@@ -632,7 +632,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 class Component extends DCLogic {
   state = { route: 'home', active: 'journey', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false };
 
-  secIds = ['journey', 'difference', 'atelier', 'editions-preview', 'book', 'faq'];
+  secIds = ['journey', 'difference', 'atelier', 'story', 'editions-preview', 'book', 'faq'];
 
   componentDidMount() {
     this.onScroll = () => {
@@ -822,15 +822,16 @@ class Component extends DCLogic {
 
     const tabDefs = [
       ['home', 'Home', 'home'],
-      ['atelier', 'The Atelier', 'sec'],
-      ['editions', 'Editions', 'page'],
-      ['virtual', 'Virtual Design Sessions', 'invite'],
-      ['difference', 'The Discovery Board', 'sec']
+      ['journey', 'Toward the Vow', 'sec'],
+      ['difference', 'The Discovery Board', 'sec'],
+      ['atelier', 'Inside the Atelier', 'sec'],
+      ['story', 'Your Story', 'sec'],
+      ['editions-preview', 'Latest from Editions', 'sec']
     ];
 
     const mk = (id, label, kind) => {
-      const on = kind === 'home' ? (isHome && this.state.active === 'journey') : (kind === 'sec' ? (isHome && this.state.active === id) : (kind === 'page' && route === id));
-      const onClick = kind === 'home' ? () => this.go('home') : (kind === 'sec' ? () => this.jump(id) : (kind === 'invite' ? () => this.openInvitation() : () => this.go(id)));
+      const on = kind === 'home' ? (isHome && this.state.active === 'journey') : (isHome && this.state.active === id);
+      const onClick = kind === 'home' ? () => this.go('home') : () => this.jump(id);
       return {
         id, label, onClick, ariaCurrent: on ? (kind === 'sec' ? 'location' : 'page') : 'false'
       };
