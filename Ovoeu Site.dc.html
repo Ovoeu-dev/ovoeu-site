@@ -206,21 +206,36 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </section>
 
 <!-- Your Story -->
+<sc-if value="{{ hasStories }}" hint-placeholder-val="{{ false }}">
 <section id="sec-story" style="background:#F4F1E9;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
 <div style="max-width:1280px;margin:0 auto">
 <div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between;padding-bottom:30px;border-bottom:1px solid rgba(21,50,60,.16)">
 <div>
 <p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Your Story</p>
-<div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline">
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em">The story behind every ring.</h2>
-<span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#2F6072;border:1px solid rgba(47,96,114,.45);padding:3px 6px">Featured story coming soon</span>
-</div>
-<p style="margin:14px 0 0;max-width:52ch;font-size:14.5px;line-height:1.78;color:rgba(21,50,60,.84)">Every Ovoeu ring is built around the two people wearing it. This space will feature real couples and the stories we have had the privilege to design around, one at a time.</p>
+<p style="margin:14px 0 0;max-width:52ch;font-size:14.5px;line-height:1.78;color:rgba(21,50,60,.84)">Every Ovoeu ring is built around the two people wearing it. Here are a few of the stories we have had the privilege to design around.</p>
 </div>
 <button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">Begin your own story</button>
 </div>
-<div style="padding-top:clamp(24px,3vw,40px);width:100%;aspect-ratio:21/9;overflow:hidden;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px"><span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(21,50,60,.58)">Featured story<br>couple portrait or ring detail · wide crop<br>drop image here</span></div>
+<div style="padding-top:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;gap:24px">
+<div style="width:100%;max-width:520px;aspect-ratio:4/5;overflow:hidden;background:#EEE8DE;display:flex;align-items:center;justify-content:center">
+<img src="{{ currentStory.image }}" alt="A real Ovoeu couple's story, presented alongside their ring" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain">
 </div>
+<sc-if value="{{ showStoryNav }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:20px">
+<button onClick="{{ prevStory }}" aria-label="Previous story" style="display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(21,50,60,.25);font-size:16px;color:#15323C">←</button>
+<span style="display:flex;gap:8px;align-items:center">
+<sc-for list="{{ storyDots }}" as="d" hint-placeholder-count="3">
+<button onClick="{{ d.onClick }}" aria-label="Go to story" style="{{ d.style }}"></button>
+</sc-for>
+</span>
+<button onClick="{{ nextStory }}" aria-label="Next story" style="display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(21,50,60,.25);font-size:16px;color:#15323C">→</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+</sc-if>
 </section>
 
 <!-- Editions preview -->
@@ -634,7 +649,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false };
+  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, storyIndex: 0 };
 
   secIds = ['journey', 'difference', 'atelier', 'story', 'editions-preview', 'book', 'faq'];
 
@@ -824,11 +839,27 @@ class Component extends DCLogic {
     const isHome = route === 'home';
     const teal = '#15323C', gold = '#2F6072';
 
+    const stories = [
+      { image: 'assets/story-01.webp' },
+      { image: 'assets/story-02.webp' },
+      { image: 'assets/story-03.webp' }
+    ];
+    const hasStories = stories.length > 0;
+    const storyCount = stories.length;
+    const storyIndex = hasStories ? ((this.state.storyIndex % storyCount) + storyCount) % storyCount : 0;
+    const currentStory = hasStories ? stories[storyIndex] : null;
+    const prevStory = () => this.setState({ storyIndex: (storyIndex - 1 + storyCount) % storyCount });
+    const nextStory = () => this.setState({ storyIndex: (storyIndex + 1) % storyCount });
+    const storyDots = stories.map((s, i) => ({
+      onClick: () => this.setState({ storyIndex: i }),
+      style: { width: '7px', height: '7px', borderRadius: '50%', background: i === storyIndex ? '#15323C' : 'rgba(21,50,60,.25)', transition: 'background .2s ease' }
+    }));
+
     const tabDefs = [
       ['journey', 'Toward the Vow'],
       ['difference', 'The Discovery Board'],
       ['atelier', 'Inside the Atelier'],
-      ['story', 'Your Story'],
+      ...(hasStories ? [['story', 'Your Story']] : []),
       ['editions-preview', 'Latest from Editions']
     ];
 
@@ -981,6 +1012,7 @@ class Component extends DCLogic {
       policyMeta: pol ? pol.meta : '',
       policyBlocks: pol ? pol.blocks : [],
       tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
+      hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
