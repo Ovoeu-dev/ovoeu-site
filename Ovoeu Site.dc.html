@@ -822,23 +822,19 @@ class Component extends DCLogic {
     const teal = '#15323C', gold = '#2F6072';
 
     const tabDefs = [
-      ['home', 'Home', 'home'],
-      ['journey', 'Toward the Vow', 'sec'],
-      ['difference', 'The Discovery Board', 'sec'],
-      ['atelier', 'Inside the Atelier', 'sec'],
-      ['story', 'Your Story', 'sec'],
-      ['editions-preview', 'Latest from Editions', 'sec']
+      ['journey', 'Toward the Vow'],
+      ['difference', 'The Discovery Board'],
+      ['atelier', 'Inside the Atelier'],
+      ['story', 'Your Story'],
+      ['editions-preview', 'Latest from Editions']
     ];
 
-    const mk = (id, label, kind) => {
+    const mk = (id, label) => {
       const on = isHome && this.state.active === id;
-      const onClick = kind === 'home' ? () => this.go('home') : () => this.jump(id);
-      return {
-        id, label, onClick, ariaCurrent: on ? (kind === 'sec' ? 'location' : 'page') : 'false'
-      };
+      return { id, label, onClick: () => this.jump(id), ariaCurrent: on ? 'location' : 'false' };
     };
 
-    const tabs = tabDefs.map((d) => mk(d[0], d[1], d[2], d[3]));
+    const tabs = tabDefs.map((d) => mk(d[0], d[1]));
 
     const facts = [
       { k: '01', v: 'Couple at a time' },
