@@ -205,6 +205,26 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 </section>
 
+<!-- Bespoke Rings -->
+<sc-if value="{{ hasBespoke }}" hint-placeholder-val="{{ false }}">
+<section id="sec-bespoke" style="background:#224C5A;color:#F4F6F6;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
+<div style="max-width:1280px;margin:0 auto">
+<div style="max-width:640px;margin:0 auto clamp(40px,5vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">Bespoke Rings</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:.005em">One ring. One hand. Never repeated.</h2>
+<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(244,246,246,.86)">Every ring below was designed from nothing, for the two people who wear it. What follows is the finished work, not the names attached to it.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,32px)">
+<sc-for list="{{ bespokeVideos }}" as="v" hint-placeholder-count="2">
+<div style="aspect-ratio:1/1;overflow:hidden;background:#15323C">
+<video src="{{ v.src }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover" aria-label="A finished Ovoeu bespoke engagement ring, shown without the couple's names"></video>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
 <!-- Your Story -->
 <sc-if value="{{ hasStories }}" hint-placeholder-val="{{ false }}">
 <section id="sec-story" style="background:#F4F1E9;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
@@ -651,7 +671,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 class Component extends DCLogic {
   state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, storyIndex: 0 };
 
-  secIds = ['journey', 'difference', 'atelier', 'story', 'editions-preview', 'book', 'faq'];
+  secIds = ['journey', 'difference', 'atelier', 'bespoke', 'story', 'editions-preview', 'book', 'faq'];
 
   componentDidMount() {
     this.onScroll = () => {
@@ -855,10 +875,17 @@ class Component extends DCLogic {
       style: { width: '7px', height: '7px', borderRadius: '50%', background: i === storyIndex ? '#15323C' : 'rgba(21,50,60,.25)', transition: 'background .2s ease' }
     }));
 
+    const bespokeVideos = [
+      { src: 'assets/bespoke-01.mp4' },
+      { src: 'assets/bespoke-02.mp4' }
+    ];
+    const hasBespoke = bespokeVideos.length > 0;
+
     const tabDefs = [
       ['journey', 'Toward the Vow'],
       ['difference', 'The Discovery Board'],
       ['atelier', 'Inside the Atelier'],
+      ...(hasBespoke ? [['bespoke', 'Bespoke Rings']] : []),
       ...(hasStories ? [['story', 'Your Story']] : []),
       ['editions-preview', 'Latest from Editions']
     ];
@@ -944,7 +971,8 @@ class Component extends DCLogic {
       { label: 'Toward the Vow', onClick: () => this.jump('journey') },
       { label: 'The Discovery Board', onClick: () => this.jump('difference') },
       { label: 'Inside the Atelier', onClick: () => this.jump('atelier') },
-      { label: 'Your Story', onClick: () => this.jump('story') },
+      ...(hasBespoke ? [{ label: 'Bespoke Rings', onClick: () => this.jump('bespoke') }] : []),
+      ...(hasStories ? [{ label: 'Your Story', onClick: () => this.jump('story') }] : []),
       { label: 'Latest from Editions', onClick: () => this.jump('editions-preview') }
     ];
 
@@ -1013,6 +1041,7 @@ class Component extends DCLogic {
       policyBlocks: pol ? pol.blocks : [],
       tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
       hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1,
+      hasBespoke, bespokeVideos,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
