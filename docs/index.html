@@ -76,8 +76,11 @@ a:hover{color:#2F6072;border-color:#2F6072}
 .ov-site-header button:focus-visible,.ov-invite-layer button:focus-visible,.ov-invite-layer a:focus-visible,.ov-mobile-drawer button:focus-visible,.ov-mobile-drawer a:focus-visible,.ov-text-link:focus-visible{outline:2px solid #2F6072;outline-offset:4px}
 .ov-journey-mobile{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .ov-media-image{display:block;width:100%;height:100%;object-fit:cover}
-.ov-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,2.4vw,26px)}
-.ov-gallery-item{aspect-ratio:4/5;overflow:hidden;background:#15323C;border:1px solid rgba(21,50,60,.12)}
+.ov-coverflow-track{display:flex;align-items:center;justify-content:center;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px calc(50% - 130px);scrollbar-width:none}
+.ov-coverflow-track::-webkit-scrollbar{display:none}
+.ov-coverflow-card{flex:none;width:260px;aspect-ratio:4/5;scroll-snap-align:center;overflow:hidden;background:#15323C;border:1px solid rgba(21,50,60,.12);transition:transform .35s cubic-bezier(.22,.72,.28,1),opacity .35s ease,filter .35s ease}
+.ov-coverflow-arrow{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(21,50,60,.25);border-radius:50%;font-size:16px;color:#15323C;transition:opacity .2s ease}
+.ov-coverflow-arrow[data-disabled="true"]{opacity:.32;pointer-events:none}
 .ov-editions-banner{display:block;width:100%;overflow:hidden;border:1px solid rgba(21,50,60,.12);background:#F4F1E9;text-align:left}
 .ov-editions-banner img{display:block;width:100%;height:auto;transition:transform .7s cubic-bezier(.2,.65,.2,1)}
 .ov-editions-banner:hover img{transform:scale(1.012)}
@@ -216,9 +219,9 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:.005em">Made once. Never repeated.</h2>
 <p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84)">Every piece below was designed from nothing, for the person who wears it. What follows is the finished work, not the names attached to it.</p>
 </div>
-<div class="ov-gallery-grid">
+<div id="bespoke-track" class="ov-coverflow-track">
 <sc-for list="{{ bespokeItems }}" as="m" hint-placeholder-count="2">
-<div class="ov-gallery-item">
+<div class="ov-coverflow-card" style="{{ m.cardStyle }}">
 <sc-if value="{{ m.isVideo }}" hint-placeholder-val="{{ true }}">
 <video src="{{ m.src }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" class="ov-media-image" aria-label="A finished Ovoeu bespoke piece, shown without the client's name"></video>
 </sc-if>
@@ -228,6 +231,12 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 </sc-for>
 </div>
+<sc-if value="{{ showBespokeNav }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;justify-content:center;gap:20px;padding-top:clamp(24px,3vw,36px)">
+<button onClick="{{ bespokePrev }}" aria-label="Previous piece" data-disabled="{{ bespokePrevDisabled }}" class="ov-coverflow-arrow">←</button>
+<button onClick="{{ bespokeNext }}" aria-label="Next piece" data-disabled="{{ bespokeNextDisabled }}" class="ov-coverflow-arrow">→</button>
+</div>
+</sc-if>
 </div>
 </section>
 </sc-if>
@@ -676,7 +685,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, storyIndex: 0 };
+  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, storyIndex: 0, bespokeIndex: 0 };
 
   secIds = ['journey', 'difference', 'atelier', 'bespoke', 'story', 'editions-preview', 'book', 'faq'];
 
@@ -719,9 +728,30 @@ class Component extends DCLogic {
     this.onResize = () => {
       if (window.innerWidth > 960 && this.state.menuOpen) this.closeMenu(false);
     };
+    this.bespokeScrollTicking = false;
+    this.onBespokeScroll = () => {
+      if (this.bespokeScrollTicking) return;
+      this.bespokeScrollTicking = true;
+      requestAnimationFrame(() => {
+        this.bespokeScrollTicking = false;
+        const track = document.getElementById('bespoke-track');
+        if (!track) return;
+        const trackRect = track.getBoundingClientRect();
+        const centerX = trackRect.left + trackRect.width / 2;
+        let closest = 0, closestDist = Infinity;
+        Array.from(track.children).forEach((child, i) => {
+          const r = child.getBoundingClientRect();
+          const d = Math.abs((r.left + r.width / 2) - centerX);
+          if (d < closestDist) { closestDist = d; closest = i; }
+        });
+        if (closest !== this.state.bespokeIndex) this.setState({ bespokeIndex: closest });
+      });
+    };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('keydown', this.onKeyDown);
     window.addEventListener('resize', this.onResize, { passive: true });
+    const bespokeTrack = document.getElementById('bespoke-track');
+    if (bespokeTrack) bespokeTrack.addEventListener('scroll', this.onBespokeScroll, { passive: true });
     this.onScroll();
     this.startStoryTimer();
   }
@@ -729,6 +759,8 @@ class Component extends DCLogic {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('keydown', this.onKeyDown);
     window.removeEventListener('resize', this.onResize);
+    const bespokeTrack = document.getElementById('bespoke-track');
+    if (bespokeTrack) bespokeTrack.removeEventListener('scroll', this.onBespokeScroll);
     clearInterval(this.storyTimer);
     this.setPageInert(false);
     this.setMenuInert(false);
@@ -741,6 +773,12 @@ class Component extends DCLogic {
       if (this.storyPaused || !this.storyCount || this.storyCount <= 1) return;
       this.setState((s) => ({ storyIndex: (s.storyIndex + 1) % this.storyCount }));
     }, 2000);
+  }
+
+  scrollBespokeTo(idx) {
+    const track = document.getElementById('bespoke-track');
+    const el = track && track.children[idx];
+    if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
   trapFocus(event, container, prefix = []) {
@@ -900,7 +938,33 @@ class Component extends DCLogic {
       { type: 'video', src: 'assets/bespoke-02.mp4' }
     ];
     const hasBespoke = bespokeRaw.length > 0;
-    const bespokeItems = bespokeRaw.map((item) => ({ src: item.src, isVideo: item.type === 'video', isImage: item.type !== 'video' }));
+    const bespokeCount = bespokeRaw.length;
+    this.bespokeCount = bespokeCount;
+    const bespokeIndex = Math.max(0, Math.min(this.state.bespokeIndex, bespokeCount - 1));
+    const bespokeItems = bespokeRaw.map((item, i) => {
+      const absDist = Math.abs(i - bespokeIndex);
+      const scale = absDist === 0 ? 1 : absDist === 1 ? 0.82 : 0.68;
+      const opacity = absDist === 0 ? 1 : absDist === 1 ? 0.55 : 0.3;
+      return {
+        src: item.src,
+        isVideo: item.type === 'video',
+        isImage: item.type !== 'video',
+        cardStyle: { transform: 'scale(' + scale + ')', opacity, zIndex: String(10 - absDist), filter: absDist === 0 ? 'none' : 'saturate(.85)' }
+      };
+    });
+    const bespokePrevDisabled = bespokeIndex === 0 ? 'true' : 'false';
+    const bespokeNextDisabled = bespokeIndex === bespokeCount - 1 ? 'true' : 'false';
+    const bespokePrev = () => {
+      const target = Math.max(0, bespokeIndex - 1);
+      this.setState({ bespokeIndex: target });
+      this.scrollBespokeTo(target);
+    };
+    const bespokeNext = () => {
+      const target = Math.min(bespokeCount - 1, bespokeIndex + 1);
+      this.setState({ bespokeIndex: target });
+      this.scrollBespokeTo(target);
+    };
+    const showBespokeNav = bespokeCount > 1;
 
     const tabDefs = [
       ['journey', 'Toward the Vow'],
@@ -1062,7 +1126,7 @@ class Component extends DCLogic {
       policyBlocks: pol ? pol.blocks : [],
       tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
       hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1, pauseStory, resumeStory,
-      hasBespoke, bespokeItems,
+      hasBespoke, bespokeItems, bespokePrev, bespokeNext, bespokePrevDisabled, bespokeNextDisabled, showBespokeNav,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
