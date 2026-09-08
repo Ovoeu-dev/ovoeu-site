@@ -31,32 +31,38 @@ Client-side routing via `state.route` in the logic class — no URLs/hashes.
 
 - **home** — tabbed sections, sticky nav with scroll-spy
   1. Hero (video disabled, see Open items)
-  2. `01 · Toward the Vow` — full-width illustration; the five moments (01-05)
-     are labeled directly in the artwork, no separate text section
-  3. `02 · The Ovoeu Difference`
-  4. `03 · Inside the Atelier`
-  5. `04 · Editions` preview (3 cards, "Shop coming soon")
-  6. `05 · Book your Design Session`
-  7. `06 · Frequently Asked` (3-item accordion → full page)
-- **editions** — story-led, not a shop grid. Hero, "Now showing" (3 editions),
+  2. `Toward the Vow` — full-width illustration; the five moments (01-05)
+     are labeled directly in the artwork, with a mobile-only accessible text version
+  3. `The Discovery Board`
+  4. `Inside the Atelier`
+  5. `Your Story` — anonymized tablet/iterations editorial
+  6. `Editions` preview — A Life, Collected editorial banner
+  7. `An invitation` — booking threshold
+  8. `Frequently Asked` (3-item accordion → full page)
+- **editions** — story-led, not a shop grid. Hero, "Now showing" (A Life,
+  Collected; Beloved Isle; The Wall),
   "In build" (what the shop will do) + notify capture, Inquire band
 - **contact** — "Contact Us", 4 channel rows (call / text / email / visit), image slot
 - **faq-all** — all 8 questions, grouped in 4 categories, fully expanded
 - **privacy** / **terms** / **refunds** — shared layout + legal sub-nav
 
-Tab order follows page order: Toward the Vow · The Difference · The Atelier ·
-Editions (SOON) · Book · FAQ · then the Concierge and sign-in icons.
+Primary navigation is editorial and intentionally selective: Home · The Atelier ·
+Editions · Virtual Design Sessions · The Discovery Board. FAQ, Contact, and the
+Client Portal remain in the footer and the mobile utility row.
 
 ## Decisions worth remembering
 
-- **Every booking CTA routes to Contact.** Zoho Bookings links were removed on request.
+- **Booking is now an invitation threshold.** “Begin Your Design Session” opens a
+  ceremonial side sheet with two clear choices: At the Atelier or Virtual. Each
+  choice continues to its corresponding Zoho booking calendar.
 - **One CTA per section.** Duplicate CTAs were cut twice (Atelier section, Editions rows).
   The Atelier section owns "Visit the atelier"; section 05 owns booking.
 - **No em dashes anywhere.** Prose was rewritten, not just stripped. Label separators
   use `·`. En dashes kept in numeric ranges (60–90 minutes, Mon–Sat).
 - **Facts appear once.** Hours live only on the Contact "Visit us" row and the footer.
-- Top utility bar removed. Header CTA button removed. "The Lab-Grown Atelier"
-  tagline removed from the header.
+- Top utility bar removed. A single invitation-style header CTA was restored after
+  approval of the “digital wedding invitation” direction. "The Lab-Grown Atelier"
+  tagline remains removed from the header.
 - Vimeo atelier film removed.
 - `Lab-Grown` is wrapped in `white-space:nowrap` inside the hero H1 so it can't
   break on the hyphen.
@@ -81,15 +87,15 @@ Editions (SOON) · Book · FAQ · then the Concierge and sign-in icons.
    whoever produced it, hosted from `assets/` instead of the third-party CDN, then
    flip `showHeroVideo` back to `true`. The `autoPlay`/`playsInline`/`muted`
    attributes on the `<video>` tag are already fixed and ready for that file.
-2. **Photography.** `Toward the Vow` banner is final (see below). Still waiting on:
-   atelier interior (wide), bench detail, Discovery Board, 3 home Edition cards,
-   3 Editions hero stills, Contact hero (4:5, ring on light-blue ground).
+2. **Photography.** Real atelier wide, felt-table, and founder-at-bench photography
+   are now in the Home and Contact layouts. Editions uses the approved editorial
+   campaign artwork. Replace any of these later only with an intentional final crop.
 3. **Terms of Service copy.** Three sections marked "copy needed": using this site,
    intellectual property, limitation of liability & governing law. No source copy
    exists on the live site. Privacy and Refund & Returns are verbatim from live.
-4. **Editions content is draft.** Bearing / Threshold / Quiet Signet — names, stories,
-   and specs are placeholders written about the *designs* (not invented client
-   stories). Replace with the real pieces.
+4. **Editions content.** The earlier placeholder names and specs were replaced with
+   the approved A Life, Collected and Beloved Isle concepts. Confirm production
+   materials and commission language before enabling online ordering.
 5. **Map embed** was removed with the Oklahoma City Atelier section. Can go into
    Contact's right column if wanted.
 6. **Sign-in icon** in the nav is CSS-drawn. Swap for a real icon if there is one.
@@ -149,3 +155,32 @@ flex-start/center breakpoint above moved to 1024px.
 
 `showHeroVideo` (default `false` — see Open items), `showEditionsPreview`,
 `editionsMode` (Email capture / Type only).
+
+## Navigation and invitation update (2026-09-06)
+
+- Rebuilt the header as one 80px editorial row on desktop: wordmark, five focused
+  destinations, and one persistent “Begin Your Design Session” invitation.
+- Replaced the mobile horizontal scroller with Menu · OVOEU · Begin and a full-height
+  ivory navigation drawer.
+- Added a keyboard-accessible invitation sheet with focus trapping, Escape/backdrop
+  close, background inert state, scroll locking, and focus restoration.
+- Retitled section 02 “The Discovery Board” and clarified how personal questions,
+  stones, sketches, and iterations become the couple’s shared design language.
+- Removed “SOON” from the primary navigation. Shop timing stays inside Editions.
+
+## Founder, story, and imagery refinement (2026-09-06)
+
+- Reframed the hero around the emotional promise: “A ring only your story could
+  make.” Lab-grown, Oklahoma City, and virtual availability remain explicit below.
+- Reserved 01–05 exclusively for the five Toward the Vow moments. Home section
+  numbering was removed so it no longer conflicts with Black Glove Delivery.
+- Added a mobile-only text rendering of the five moments; the words baked into the
+  wide artwork were too small to carry the experience on a phone.
+- Made the founder-led model explicit throughout Home, Contact, and FAQs. “Concierge”
+  no longer hides the fact that guests work directly with the founder and jeweler.
+- Added the Your Story editorial section and an anonymized tablet asset. The tablet
+  header reads “ITERATIONS”; no client names or testimonials were fabricated.
+- Replaced every development image slot in Home, Editions, and Contact with approved
+  atelier photography or editorial artwork.
+- Standardized customer-facing language to Technical Drawing (CAD on first mention),
+  clarified the $250 prototype deposit, and changed “Nothing sold” to “Nothing pushed.”

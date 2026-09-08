@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ovoeu — Bespoke Lab-Grown Jewelry Atelier | Oklahoma City</title>
-<meta name="description" content="Ovoeu is a bespoke lab-grown jewelry atelier in Oklahoma City, designing engagement rings and heirloom pieces with you. Complimentary CAD, a prototype yours to keep, in person or virtual.">
+<title>Ovoeu | Bespoke Lab-Grown Jewelry Atelier | Oklahoma City</title>
+<meta name="description" content="Ovoeu is a bespoke lab-grown jewelry atelier in Oklahoma City, designing engagement rings and heirloom pieces with you. Complimentary Design Session and Technical Drawing, in person or virtual.">
 <link rel="icon" href="assets/ovoeu-icon.png">
-<meta property="og:title" content="Ovoeu — For those who vow.">
+<meta property="og:title" content="Ovoeu | For those who vow.">
 <meta property="og:description" content="Bespoke lab-grown jewelry, designed with you. Oklahoma City and virtual, nationwide.">
 <meta property="og:image" content="assets/ovoeu-wordmark.png">
 <meta property="og:type" content="website">
@@ -27,52 +27,104 @@ input,textarea,select{font:inherit;color:inherit}
 a{color:#224C5A;text-decoration:none;border-bottom:1px solid rgba(34,76,90,.28);transition:color .2s,border-color .2s}
 a:hover{color:#2F6072;border-color:#2F6072}
 @keyframes ovRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.hscroll{mask-image:linear-gradient(to right,black calc(100% - 28px),transparent);-webkit-mask-image:linear-gradient(to right,black calc(100% - 28px),transparent)}
-@media (min-width:1024px){.site-nav{justify-content:center!important}.site-nav.hscroll{mask-image:none;-webkit-mask-image:none}}
-@media (max-width:767px){.journey-banner{width:100vw!important;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}}
+.ov-site-header{position:sticky;top:0;z-index:40;color:#15323C;background:rgba(244,241,233,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(21,50,60,.13)}
+.ov-header-inner{min-height:80px;max-width:1440px;margin:0 auto;padding:0 clamp(22px,4vw,58px);display:grid;grid-template-columns:minmax(126px,.7fr) minmax(520px,2.9fr) minmax(210px,.9fr);align-items:center;gap:20px}
+.ov-wordmark{justify-self:start;display:block;padding:8px 0;border:0}
+.ov-wordmark img{display:block;width:auto;height:clamp(25px,2.2vw,32px)}
+.ov-desktop-nav{display:flex;align-items:stretch;justify-content:center;gap:clamp(10px,1.5vw,24px)}
+.ov-nav-button{position:relative;min-height:44px;padding:14px 2px 12px;color:rgba(21,50,60,.74);font-size:11px;font-weight:400;letter-spacing:.14em;line-height:1.25;text-transform:uppercase;white-space:nowrap;transition:color .22s ease}
+.ov-nav-button::after{position:absolute;right:50%;bottom:7px;left:50%;height:1px;content:"";background:currentColor;opacity:.72;transition:right .22s ease,left .22s ease}
+.ov-nav-button:hover,.ov-nav-button[aria-current="page"],.ov-nav-button[aria-current="location"]{color:#15323C}
+.ov-nav-button:hover::after{right:12%;left:12%}
+.ov-nav-button[aria-current="page"]::after,.ov-nav-button[aria-current="location"]::after{right:28%;left:28%}
+.ov-invitation-cta{position:relative;display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:14px;border:1px solid #A4BAC2!important;border-radius:0;padding:0 23px!important;color:#15323C!important;background:#A4BAC2!important;box-shadow:inset 0 0 0 3px rgba(244,241,233,.44);font-size:10.5px!important;font-weight:500;letter-spacing:.16em!important;line-height:1.25;text-transform:uppercase;white-space:nowrap;transition:color .24s ease,background-color .24s ease,border-color .24s ease,transform .16s ease}
+.ov-invitation-cta::before{position:absolute;inset:3px;border:1px solid rgba(21,50,60,.13);content:"";pointer-events:none}
+.ov-invitation-cta::after{content:"\2192";font-size:16px;font-weight:300;line-height:1;letter-spacing:0}
+.ov-invitation-cta:hover{border-color:#F4F1E9!important;color:#F4F1E9!important;background:#15323C!important}
+.ov-invitation-cta:active{transform:translateY(1px)}
+.ov-text-link{position:relative;display:inline-block;padding-bottom:7px!important;border-bottom:0!important}
+.ov-text-link::after{position:absolute;right:50%;bottom:2px;left:50%;height:1px;content:"";background:currentColor;opacity:.7;transition:right .22s ease,left .22s ease}
+.ov-text-link:hover::after{right:0;left:0}
+.ov-mobile-menu,.ov-mobile-begin{display:none}
+.ov-mobile-drawer{position:fixed;z-index:48;top:68px;right:0;bottom:0;left:0;overflow:auto;padding:46px 28px 34px;color:#15323C;background:#F4F1E9;animation:ovMenuIn .28s ease both}
+.ov-mobile-nav{display:grid;align-content:start}
+.ov-mobile-nav .ov-nav-button{min-height:58px;padding:6px 0;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(31px,9vw,46px);letter-spacing:0;line-height:1.08;text-align:left;text-transform:none}
+.ov-mobile-nav .ov-nav-button::after{display:none}
+.ov-mobile-utilities{display:flex;flex-wrap:wrap;gap:18px 24px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(21,50,60,.16)}
+.ov-mobile-utilities button,.ov-mobile-utilities a{min-height:40px;display:inline-flex;align-items:center;color:rgba(21,50,60,.68);border-bottom:0;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.ov-invite-layer{position:fixed;z-index:80;inset:0}
+.ov-invite-backdrop{position:absolute;inset:0;width:100%;height:100%;background:rgba(10,30,38,.7);animation:ovFadeIn .28s ease both}
+.ov-invite-panel{position:absolute;top:0;right:0;bottom:0;width:min(460px,94vw);overflow:auto;padding:30px 40px 42px;color:#15323C;background:#F4F1E9;box-shadow:-28px 0 72px rgba(7,25,32,.24);animation:ovInviteIn .34s cubic-bezier(.22,.72,.28,1) both}
+.ov-invite-close{display:grid;width:44px;height:44px;margin-left:auto;place-items:center;border:1px solid rgba(21,50,60,.18);font-size:22px;font-weight:300;line-height:1}
+.ov-invite-close:hover{background:rgba(164,186,194,.14)}
+.ov-invite-mark{display:block;width:auto;height:72px;margin:18px 0 22px;object-fit:contain;object-position:left center}
+.ov-invite-title{max-width:330px;margin:0;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(42px,5.4vw,60px);font-weight:400;letter-spacing:-.018em;line-height:.96}
+.ov-invite-copy{margin:18px 0 28px;color:rgba(21,50,60,.72);font-size:14px;font-weight:300;letter-spacing:.025em;line-height:1.72}
+.ov-invite-choices{display:grid;border-top:1px solid rgba(21,50,60,.18)}
+.ov-invite-choice{display:grid;grid-template-columns:1fr auto;gap:7px 18px;align-items:center;min-height:94px;padding:18px 4px;text-align:left;border-bottom:1px solid rgba(21,50,60,.18);transition:background-color .22s ease,padding .22s ease}
+.ov-invite-choice:hover{padding-right:13px;padding-left:13px;background:rgba(164,186,194,.14)}
+.ov-invite-choice-name{font-family:'Instrument Serif',Georgia,serif;font-size:29px;line-height:1}
+.ov-invite-choice-meta{color:rgba(21,50,60,.62);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.ov-invite-choice-arrow{grid-row:1 / span 2;grid-column:2;font-size:21px;font-weight:300}
+.ov-invite-contact{margin:32px 0 0;color:rgba(21,50,60,.64);font-size:12px;font-weight:300;letter-spacing:.025em;line-height:1.75}
+.ov-invite-contact a{color:#15323C}
+.ov-skip-link{position:fixed;z-index:120;top:8px;left:8px;padding:10px 14px;color:#F4F1E9;background:#15323C;border:1px solid #A4BAC2;transform:translateY(-140%);transition:transform .16s ease}
+.ov-skip-link:focus{transform:translateY(0)}
+.ov-site-header button:focus-visible,.ov-invite-layer button:focus-visible,.ov-invite-layer a:focus-visible,.ov-mobile-drawer button:focus-visible,.ov-mobile-drawer a:focus-visible,.ov-text-link:focus-visible{outline:2px solid #2F6072;outline-offset:4px}
+.ov-journey-mobile{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ov-media-image{display:block;width:100%;height:100%;object-fit:cover}
+.ov-editions-banner{display:block;width:100%;overflow:hidden;border:1px solid rgba(21,50,60,.12);background:#F4F1E9;text-align:left}
+.ov-editions-banner img{display:block;width:100%;height:auto;transition:transform .7s cubic-bezier(.2,.65,.2,1)}
+.ov-editions-banner:hover img{transform:scale(1.012)}
+.ov-story-frame{position:relative;max-width:1280px;margin:0 auto;overflow:hidden;background:#EEE8DE;border:1px solid rgba(21,50,60,.12)}
+.ov-story-frame>img{display:block;width:100%;height:auto}
+.ov-story-copy{position:absolute;z-index:1;top:50%;left:clamp(24px,5vw,72px);width:min(34%,390px);transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+@keyframes ovMenuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes ovInviteIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes ovFadeIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*[style*="animation:ovRise"],.ov-mobile-drawer,.ov-invite-backdrop,.ov-invite-panel{animation:none!important}.ov-nav-button::after,.ov-invitation-cta,.ov-text-link::after{transition:none}}
+@media (max-width:1100px){.ov-header-inner{grid-template-columns:minmax(116px,.62fr) minmax(500px,2.7fr) minmax(194px,.8fr);gap:12px;padding:0 22px}.ov-desktop-nav{gap:10px}.ov-nav-button{font-size:10px;letter-spacing:.11em}.ov-invitation-cta{padding-right:17px!important;padding-left:17px!important;letter-spacing:.13em!important}}
+@media (max-width:960px){.ov-header-inner{min-height:68px;grid-template-columns:1fr auto 1fr;padding:0 18px}.ov-wordmark{grid-column:2;grid-row:1;justify-self:center}.ov-wordmark img{height:27px}.ov-desktop-nav,.ov-header-inner>.ov-invitation-cta{display:none}.ov-mobile-menu,.ov-mobile-begin{display:inline-flex;min-height:44px;align-items:center;color:#15323C;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.ov-mobile-menu{grid-column:1;grid-row:1;justify-self:start}.ov-mobile-begin{grid-column:3;grid-row:1;justify-self:end}.ov-invite-panel{width:100%;padding:24px 26px 34px}}
+@media (max-width:800px){.ov-story-frame{display:flex;flex-direction:column}.ov-story-copy{position:static;width:auto;transform:none;padding:34px 26px 24px}.ov-story-frame>img{order:2;min-height:260px;object-fit:cover;object-position:72% center}}
+@media (max-width:767px){.journey-banner{width:100vw!important;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}.ov-journey-mobile{position:static;display:grid;width:auto;height:auto;padding:0;margin:30px 0 0;overflow:visible;clip:auto;white-space:normal;border-top:1px solid rgba(21,50,60,.16)}.ov-journey-moment{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid rgba(21,50,60,.16)}.ov-journey-moment-no{font-family:'Instrument Serif',Georgia,serif;font-size:25px;line-height:1;color:#2F6072}.ov-journey-moment strong{display:block;font-size:12px;font-weight:500;letter-spacing:.13em;text-transform:uppercase}.ov-journey-moment em{display:block;margin-top:4px;font-family:'Instrument Serif',Georgia,serif;font-size:17px;font-weight:400;color:rgba(21,50,60,.76)}}
 </style>
 </helmet>
 
 <div style="min-height:100vh;display:flex;flex-direction:column;background:#F4F6F6">
+<div id="ov-page-shell" style="display:contents">
+<a class="ov-skip-link" href="#main-content">Skip to content</a>
 
-<header style="position:sticky;top:0;z-index:40;background:rgba(244,246,246,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(21,50,60,.12)">
-<div style="max-width:1280px;margin:0 auto;padding:18px clamp(20px,5vw,56px) 4px;display:flex;flex-wrap:wrap;gap:8px 32px;align-items:center;justify-content:center">
-
-<button onClick="{{ goHome }}" style="flex:none;display:block;padding:2px 0" aria-label="Ovoeu home">
-<img src="assets/ovoeu-wordmark.png" alt="Ovoeu" style="display:block;height:clamp(24px,2.4vw,32px);width:auto">
+<header class="ov-site-header">
+<div class="ov-header-inner">
+<button type="button" id="ov-mobile-menu-button" class="ov-mobile-menu" onClick="{{ toggleMenu }}" aria-expanded="{{ menuExpanded }}">{{ menuLabel }}</button>
+<button type="button" class="ov-wordmark" onClick="{{ goHome }}" aria-label="Ovoeu home">
+<img src="assets/ovoeu-wordmark.png" alt="Ovoeu">
 </button>
-
-<nav class="site-nav hscroll" style="order:3;flex:1 1 100%;display:flex;flex-wrap:nowrap;align-items:center;gap:0 16px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none">
-<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
-<button onClick="{{ t.onClick }}" style="flex:none;padding:6px 14px 8px;display:flex;flex-direction:column;align-items:center;gap:0">
-<span style="display:flex;align-items:baseline;gap:5px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap;transition:color .2s">
-<span style="{{ t.labelStyle }}">{{ t.label }}</span>
-<sc-if value="{{ t.soon }}" hint-placeholder-val="{{ false }}"><span style="font-size:7.5px;letter-spacing:.14em;color:#2F6072;border:1px solid rgba(47,96,114,.4);border-radius:2px;padding:1px 3px">SOON</span></sc-if>
-</span>
-<span style="{{ t.rule }}"></span>
-</button>
+<nav class="ov-desktop-nav" aria-label="Primary navigation">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+<button type="button" class="ov-nav-button" onClick="{{ t.onClick }}" aria-current="{{ t.ariaCurrent }}">{{ t.label }}</button>
 </sc-for>
-
-<span style="flex:none;width:1px;height:16px;background:rgba(21,50,60,.2);margin:0 8px 0 12px"></span>
-
-<button onClick="{{ goContact }}" title="Concierge" aria-label="Concierge" style="flex:none;padding:4px 10px 6px;display:flex;flex-direction:column;align-items:center;gap:4px">
-<img src="assets/ovoeu-icon.png" alt="" style="display:block;height:22px;width:auto">
-<span style="{{ conciergeRule }}"></span>
-</button>
-
-<a href="https://ovoeustores.zcrmportals.com/portal/OvoeuStores/crm/login.sas" title="Client Portal sign in" aria-label="Client Portal sign in" style="flex:none;padding:4px 10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(21,50,60,.66);border-bottom:0" style-hover="color:#15323C">
-<span style="position:relative;display:block;width:17px;height:19px">
-<span style="position:absolute;top:1px;left:4px;width:9px;height:9px;border:1.5px solid currentColor;border-radius:50%"></span>
-<span style="position:absolute;bottom:2px;left:0;width:17px;height:8px;border:1.5px solid currentColor;border-bottom:0;border-radius:9px 9px 0 0"></span>
-</span>
-<span style="display:block;width:100%;height:1px;background:transparent"></span>
-</a>
 </nav>
-
+<button type="button" class="ov-invitation-cta" onClick="{{ openInvitation }}">Begin Your Design Session</button>
+<button type="button" class="ov-mobile-begin" onClick="{{ openInvitation }}">Begin</button>
 </div>
 </header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div class="ov-mobile-drawer" id="ov-mobile-drawer">
+<nav class="ov-mobile-nav" aria-label="Mobile navigation">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+<button type="button" class="ov-nav-button" onClick="{{ t.onClick }}" aria-current="{{ t.ariaCurrent }}">{{ t.label }}</button>
+</sc-for>
+</nav>
+<div class="ov-mobile-utilities">
+<button type="button" onClick="{{ goFaqPage }}">Frequently Asked</button>
+<button type="button" onClick="{{ goContact }}">Contact</button>
+<a href="https://ovoeustores.zcrmportals.com/portal/OvoeuStores/crm/login.sas">Client Portal</a>
+</div>
+</div>
+</sc-if>
 
-<main style="flex:1">
+<main id="main-content" tabindex="-1" style="flex:1">
 
 <!-- ══════════ HOME ══════════ -->
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
@@ -85,10 +137,11 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,60,.62) 0%,rgba(21,50,60,.48) 45%,rgba(21,50,60,.86) 100%)"></div>
 <div style="position:relative;height:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(48px,7vw,88px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(20px,3vw,34px)">
 <p style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(19px,2.4vw,30px);color:#A4BAC2;letter-spacing:.01em;animation:ovRise .8s ease both">For those who vow.</p>
-<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,8.6vw,124px);line-height:.92;letter-spacing:.005em;color:#F4F6F6;max-width:14ch;text-wrap:balance;animation:ovRise 1s .1s ease both">The <span style="white-space:nowrap">Lab-Grown</span> Atelier</h1>
+<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,8.2vw,118px);line-height:.92;letter-spacing:.005em;color:#F4F6F6;max-width:14ch;text-wrap:balance;animation:ovRise 1s .1s ease both">A ring only your story could make.</h1>
+<p style="margin:0;max-width:52ch;font-size:clamp(15px,1.25vw,18px);line-height:1.65;color:rgba(244,246,246,.82);animation:ovRise 1s .16s ease both">Bespoke lab-grown jewelry, designed with you at the Ovoeu Atelier in Oklahoma City or virtually, wherever you are.</p>
 <div style="display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;animation:ovRise 1s .2s ease both">
-<button onClick="{{ goContact }}" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:11px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#A4BAC2">Book a Design Session</button>
-<button onClick="{{ toJourney }}" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,246,246,.75);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">See the five moments ↓</button>
+<button class="ov-invitation-cta" onClick="{{ openInvitation }}">Begin Your Design Session</button>
+<button class="ov-text-link" onClick="{{ toJourney }}" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,246,246,.75)" style-hover="color:#F4F6F6">See the five moments</button>
 </div>
 </div>
 </section>
@@ -96,8 +149,8 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="background:#15323C;color:rgba(244,246,246,.72);border-top:1px solid rgba(164,186,194,.18)">
 <div style="max-width:1280px;margin:0 auto;padding:16px clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:10px 40px;justify-content:space-between;font-size:10px;letter-spacing:.24em;text-transform:uppercase">
 <span>Design Session · Complimentary</span>
-<span>CAD · Complimentary</span>
-<span>Prototype · Yours to keep</span>
+<span>Technical Drawing · Complimentary</span>
+<span>Prototype · $250 · Applied if you proceed</span>
 <span>Oklahoma City &amp; Virtual</span>
 </div>
 </div>
@@ -105,8 +158,15 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <!-- The Journey -->
 <section id="sec-journey" style="background:#FDFDFD;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
 <div style="max-width:1280px;margin:0 auto">
-<p style="margin:0 0 clamp(20px,2.4vw,30px);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072;text-align:center">01 · Toward the Vow</p>
+<p style="margin:0 0 clamp(20px,2.4vw,30px);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072;text-align:center">Toward the Vow</p>
 <img class="journey-banner" src="assets/toward-the-vow.webp" alt="Toward the Vow, five considered moments, from Design Session to Black Glove Delivery" style="display:block;width:100%;height:auto">
+<div class="ov-journey-mobile" aria-label="The five considered moments">
+<div class="ov-journey-moment"><span class="ov-journey-moment-no">01</span><span><strong>Design Session</strong><em>Your direction, discovered.</em></span></div>
+<div class="ov-journey-moment"><span class="ov-journey-moment-no">02</span><span><strong>Technical Drawing</strong><em>The form, made exact.</em></span></div>
+<div class="ov-journey-moment"><span class="ov-journey-moment-no">03</span><span><strong>The Fitting</strong><em>Worn before it is final.</em></span></div>
+<div class="ov-journey-moment"><span class="ov-journey-moment-no">04</span><span><strong>In the Workshop</strong><em>Finished by hand.</em></span></div>
+<div class="ov-journey-moment"><span class="ov-journey-moment-no">05</span><span><strong>Black Glove Delivery</strong><em>Your design, fulfilled.</em></span></div>
+</div>
 </div>
 </section>
 
@@ -114,12 +174,13 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <section id="sec-difference" style="background:#224C5A;color:#F4F6F6;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
 <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,5vw,80px)">
 <div>
-<p style="margin:0 0 14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">02 · The Ovoeu Difference</p>
-<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5.2vw,70px);line-height:1.02;letter-spacing:.005em;max-width:19ch;text-wrap:pretty">Co-created, never pulled from a case.</h2>
+<p style="margin:0 0 14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">The Discovery Board</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5.2vw,70px);line-height:1.02;letter-spacing:.005em;max-width:19ch;text-wrap:pretty">Your story, translated into form.</h2>
 </div>
 <div style="display:flex;flex-direction:column;gap:26px;padding-top:clamp(0px,2vw,32px)">
-<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">The Design Session and CAD are complimentary. The prototype is yours to keep, or its cost is applied to your final ring. You commit only when you say yes.</p>
-<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">Every Ovoeu ring is designed around the couple who will wear it. You collaborate directly with our team in CAD, shaping a ring that exists for your story alone. Never selected from a retail display, never made in a batch, never seen on another hand.</p>
+<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">Through a series of personal questions, your memories and references become a shared visual language. Working directly with Ovoeu’s founder and jeweler, you explore hand-selected diamonds, guided digital iterations, and sketches until the ring feels unmistakably yours.</p>
+<p style="margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:1.78;color:rgba(244,246,246,.86)">The chosen direction becomes a Technical Drawing (CAD), then a physical prototype you can wear before anything is final. The Design Session and Technical Drawing are complimentary. The $250 prototype deposit is applied to your final ring if you proceed, and the prototype is yours to keep.</p>
+<p style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(18px,1.55vw,23px);line-height:1.45;color:#A4BAC2">Never selected from a retail display. Never made in a batch. Never seen on another hand.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:rgba(164,186,194,.25);margin-top:8px">
 <sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
 <div style="background:#224C5A;padding:20px 18px;display:flex;flex-direction:column;gap:8px">
@@ -136,25 +197,33 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <section id="sec-atelier" style="padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
 <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(34px,4.5vw,72px);align-items:center">
 <div style="display:flex;flex-direction:column;gap:24px">
-<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">03 · Inside the Atelier</p>
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Inside the Atelier</p>
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:.005em;max-width:20ch">A working space, not a showroom.</h2>
 <p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Butcher-block design tables. Deep teal walls. A quiet room where couples sit, sketch, and decide.</p>
-<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Our Design Session is a conversation, not a transaction. Come to Oklahoma City, or meet with us virtually from anywhere in the country. Either way, we make time for you. Only you.</p>
-<button onClick="{{ goContact }}" style="align-self:flex-start;margin-top:4px;border:1px solid #15323C;background:#15323C;color:#F4F6F6;padding:14px 28px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#15323C">Visit the atelier</button>
+<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Your Design Session is led directly by Ovoeu’s founder and jeweler, the same person who listens to your story, guides every iteration, and remains with your ring through Black Glove Delivery.</p>
+<p style="margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.78;color:rgba(21,50,60,.84);max-width:46ch">Come to Oklahoma City, or meet virtually from anywhere in the country. Either way, we make time for you. Only you.</p>
+<button class="ov-invitation-cta" onClick="{{ openInvitation }}" style="align-self:flex-start;margin-top:4px">Begin Your Design Session</button>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-<div style="grid-column:1 / -1;aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px">
-<span style="font:400 10px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Atelier interior · wide shot<br>drop image here</span>
-</div>
-<div style="aspect-ratio:1;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px">
-<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Bench detail</span>
-</div>
-<div style="aspect-ratio:1;background:repeating-linear-gradient(135deg,#DFE7EA 0 10px,#E9EEF0 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px">
-<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Discovery Board</span>
-</div>
+<div style="grid-column:1 / -1;aspect-ratio:16/10;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/atelier-wide.jpg" alt="The Ovoeu Atelier in Oklahoma City, with its butcher-block design tables and private work areas"></div>
+<div style="aspect-ratio:1;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/founder-at-bench.jpg" alt="Ovoeu’s founder and jeweler examining a ring at the worktable"></div>
+<div style="aspect-ratio:1;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/atelier-felt-table.jpg" alt="The felt-covered design table beneath the Ovoeu mark and For those who vow"></div>
 </div>
 </div>
 
+</section>
+
+<!-- Your Story -->
+<section id="sec-story" style="background:#F4F1E9;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
+<div class="ov-story-frame">
+<div class="ov-story-copy">
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Your Story</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,58px);line-height:1.02;letter-spacing:.005em;text-wrap:balance">Before the ring is final, its meaning takes form.</h2>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.78;color:rgba(21,50,60,.82)">During your first Design Session, what you share becomes an Ovoeu Story: a visual portrait of the life, people, places, and promises behind the design. Presented beside your selected concept and its iterations, it gives every decision a reason.</p>
+<button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">Begin your story</button>
+</div>
+<img src="assets/your-story-iterations.jpg" alt="An Ovoeu design session with the founder, a couple, and their story and ring iterations presented on a tablet">
+</div>
 </section>
 
 <!-- Editions preview -->
@@ -163,7 +232,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="max-width:1280px;margin:0 auto">
 <div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between;padding-bottom:30px;border-bottom:1px solid rgba(21,50,60,.16)">
 <div>
-<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">04 · Editions</p>
+<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Ovoeu Editions</p>
 <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline">
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em">Latest from Editions</h2>
 <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#2F6072;border:1px solid rgba(47,96,114,.45);padding:3px 6px">Shop coming soon</span>
@@ -172,21 +241,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 <button onClick="{{ goEditions }}" style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72);border-bottom:1px solid rgba(21,50,60,.25);padding-bottom:3px" style-hover="color:#15323C">All editions →</button>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(16px,2vw,28px);padding-top:clamp(24px,3vw,40px)">
-<sc-for list="{{ editions }}" as="e" hint-placeholder-count="3">
-<button onClick="{{ goEditions }}" style="display:flex;flex-direction:column;gap:14px;text-align:left">
-<span style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 10px,#E7EDEF 10px 20px);display:flex;align-items:flex-end;justify-content:flex-start;padding:16px">
-<span style="font:400 9.5px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">{{ e.slot }}</span>
-</span>
-<span style="display:flex;flex-direction:column;gap:6px">
-<span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2F6072">{{ e.tag }}</span>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-size:24px;line-height:1.1">{{ e.name }}</span>
-<span style="font-size:13px;line-height:1.7;color:rgba(21,50,60,.8)">{{ e.note }}</span>
-<span style="margin-top:2px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#2F6072">Inquire →</span>
-</span>
-</button>
-</sc-for>
-</div>
+<div style="padding-top:clamp(24px,3vw,40px)"><button class="ov-editions-banner" onClick="{{ goEditions }}" aria-label="Discover Ovoeu Editions: A Life, Collected"><img src="assets/editions-a-life-collected.jpg" alt="A Life, Collected: Ovoeu stackable rings arranged on the atelier’s black felt"></button></div>
 </div>
 </section>
 </sc-if>
@@ -194,10 +249,10 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <!-- Book -->
 <section id="sec-book" style="background:#15323C;color:#F4F6F6;padding:clamp(72px,9vw,140px) clamp(20px,5vw,56px);scroll-margin-top:120px">
 <div style="max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:26px;align-items:center">
-<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">05 · Book your Design Session</p>
+<p style="margin:0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#A4BAC2">An invitation</p>
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,6vw,80px);line-height:1;letter-spacing:.005em;text-wrap:balance">Nothing to buy. Nothing to decide.</h2>
-<p style="margin:0;max-width:56ch;font-size:clamp(15px,1.2vw,17.5px);line-height:1.8;color:rgba(244,246,246,.8)">Book your Design Session at The Ovoeu Atelier in Oklahoma City, or virtually from anywhere in the country. Expect an unhurried, complimentary conversation. No pressure.</p>
-<button onClick="{{ goContact }}" style="margin-top:6px;border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:16px 34px;font-size:11px;letter-spacing:.22em;text-transform:uppercase" style-hover="background:transparent;color:#A4BAC2">Book a Design Session</button>
+<p style="margin:0;max-width:56ch;font-size:clamp(15px,1.2vw,17.5px);line-height:1.8;color:rgba(244,246,246,.8)">Begin at The Ovoeu Atelier in Oklahoma City, or virtually from anywhere in the country. Expect an unhurried, complimentary conversation. No pressure.</p>
+<button class="ov-invitation-cta" onClick="{{ openInvitation }}" style="margin-top:6px">Begin Your Design Session</button>
 <p style="margin:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.72)">60–90 minutes · Complimentary · Oklahoma City or virtual</p>
 </div>
 </section>
@@ -206,7 +261,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <section id="sec-faq" style="padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px">
 <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(30px,4vw,72px)">
 <div>
-<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">06 · Frequently Asked</p>
+<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Frequently Asked</p>
 <h2 style="margin:0 0 22px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em;max-width:16ch">Questions, answered plainly.</h2>
 <button onClick="{{ goFaqPage }}" style="align-self:flex-start;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72);border-bottom:1px solid rgba(21,50,60,.28);padding-bottom:3px" style-hover="color:#15323C">See all questions →</button>
 </div>
@@ -254,74 +309,65 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
 <div style="display:flex;flex-direction:column;gap:10px">
-<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
-<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 01 · Bearing<br>hero still</span>
-</div>
-<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-a-life-collected.jpg" alt="A Life, Collected: a stack of slender Ovoeu rings on black atelier felt" style="object-position:right center"></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:20px">
 <div style="display:flex;flex-direction:column;gap:12px">
 <span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 01</span>
-<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Bearing</h3>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Made to disappear under a work glove.</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">A Life, Collected.</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Stackable rings, made to mark what comes next.</span>
 </div>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A low-set oval on a knife-edge band. The stone drops as far into the shank as the setting allows, so nothing catches. Built for a hand that works.</p>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story it carries is about not taking the ring off. Everything decorative was removed until only that idea was left.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A family of slender gold bands, pavé lines, and a sculpted V, designed to be worn alone or gathered over time.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">One for the promise. Another for the life that follows. The composition changes as your story does.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stone</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown oval, 1.80ct</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">Platinum</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Setting</span><span style="font-size:14px;line-height:1.5;color:#15323C">Low-set four-prong</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">6–8 weeks</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Stackable bands</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">18k yellow gold</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Finish</span><span style="font-size:14px;line-height:1.5;color:#15323C">Polished and pavé</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">By conversation</span></div>
 </div>
-<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
 </div>
 </article>
 <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
 <div style="display:flex;flex-direction:column;gap:10px">
-<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
-<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 02 · Threshold<br>hero still</span>
-</div>
-<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-beloved-isle-cuff.jpg" alt="Beloved Isle: a sculptural reef cuff in Ovoeu blue, gold, and ruby red" style="object-position:left center"></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:20px">
 <div style="display:flex;flex-direction:column;gap:12px">
 <span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 02</span>
-<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Threshold</h3>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Three stones: what was, what is, what is still ahead.</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Beloved Isle</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Sculptural reef, shaped as a cuff.</span>
 </div>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A trilogy set with deliberate asymmetry. The outer stones are cut differently from the centre, so the eye reads a sequence rather than a symmetry.</p>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story is a doorway. It was designed for the moment before a decision, not after it.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Ovoeu blue rises into a shoreline of gold: shells, stones, and coral-like forms gathered around a red center.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Built as an object to discover slowly, from the broad gesture of the silhouette to the smallest hand-finished detail.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stones</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown, 0.60 / 1.20 / 0.60ct</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">18k yellow gold</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Setting</span><span style="font-size:14px;line-height:1.5;color:#15323C">Shared-prong trilogy</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">7–9 weeks</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Sculptural cuff</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Palette</span><span style="font-size:14px;line-height:1.5;color:#15323C">Ovoeu blue, gold, ruby red</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Technique</span><span style="font-size:14px;line-height:1.5;color:#15323C">Textured relief and stone setting</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">Bespoke scale</span></div>
 </div>
-<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
 </div>
 </article>
 <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
 <div style="display:flex;flex-direction:column;gap:10px">
-<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
-<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Edition 03 · Quiet Signet<br>hero still</span>
-</div>
-<span style="font:400 9px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-beloved-isle-necklace.jpg" alt="The Wall: a Beloved Isle necklace study in blue and gold" style="object-position:left center"></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:20px">
 <div style="display:flex;flex-direction:column;gap:12px">
 <span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 03</span>
-<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Quiet Signet</h3>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Engraved inside only, where no one else reads it.</span>
+<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">The Wall</h3>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Beloved Isle, drawn close to the heart.</span>
 </div>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A signet with a flush-inset diamond and a flat face left deliberately plain. All the ornament lives on the inner wall. A date, a line, a name, cut by hand.</p>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">The story is privacy. A piece that says nothing outward and everything inward.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A fine gold structure gathers around a deep-blue sculptural form, following the irregular edge of a remembered coastline.</p>
+<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Part jewel, part landscape: a place translated into texture, proportion, and movement.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Stone</span><span style="font-size:14px;line-height:1.5;color:#15323C">Lab-grown round, 0.35ct flush-set</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">14k or 18k gold</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Finish</span><span style="font-size:14px;line-height:1.5;color:#15323C">Hand-engraved interior</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Lead time</span><span style="font-size:14px;line-height:1.5;color:#15323C">5–7 weeks</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Sculptural necklace</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Palette</span><span style="font-size:14px;line-height:1.5;color:#15323C">Ovoeu blue and gold</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Inspiration</span><span style="font-size:14px;line-height:1.5;color:#15323C">Reef, shoreline, movement</span></div>
+<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">By conversation</span></div>
 </div>
-<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Inquire</button>
+<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
 </div>
 </article>
 </div>
@@ -370,7 +416,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;padding-top:6px">
 <a href="tel:4054165034" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-bottom-color:#A4BAC2" style-hover="background:transparent;color:#A4BAC2">Call 405.416.5034</a>
 <a href="sms:8557726935" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Text 855.772.6935</a>
-<button onClick="{{ goContact }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Book a Design Session →</button>
+<button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82)" style-hover="color:#F4F6F6">Begin Your Design Session</button>
 </div>
 </div>
 </section>
@@ -385,9 +431,9 @@ a:hover{color:#2F6072;border-color:#2F6072}
 
 <div style="display:flex;flex-direction:column;gap:clamp(26px,3vw,38px);width:100%;max-width:560px;justify-self:center">
 <div style="display:flex;flex-direction:column;gap:16px;text-align:center">
-<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Ovoeu Concierge</p>
-<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:.005em">Contact Us</h1>
-<p style="margin:0 auto;max-width:46ch;font-size:14.5px;line-height:1.8;color:rgba(21,50,60,.84)">No question is too small and no request too large. Choosing a stone, sizing a band, or beginning a bespoke design. In the Oklahoma City atelier or virtually from anywhere in the country, we make time for you. Only you.</p>
+<p style="margin:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">The Founder &amp; Jeweler</p>
+<h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:.005em">Talk directly with us.</h1>
+<p style="margin:0 auto;max-width:46ch;font-size:14.5px;line-height:1.8;color:rgba(21,50,60,.84)">No question is too small and no request too large. Whether you are choosing a stone, sizing a band, or beginning a bespoke design, you will speak with the people shaping your piece. In Oklahoma City or virtually, we make time for you. Only you.</p>
 </div>
 
 <div style="border-top:1px solid rgba(21,50,60,.16)">
@@ -407,10 +453,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 
 <div style="display:flex;flex-direction:column;gap:12px">
-<div style="width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#D7E1E5 0 12px,#E3EAED 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px">
-<span style="font:400 10px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.62)">Hero still · ring on<br>light-blue ground<br><br>drop image here</span>
-</div>
-<span style="font:400 9.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(21,50,60,.58)">Portrait crop · 4:5</span>
+<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/founder-at-bench.jpg" alt="Ovoeu’s founder and jeweler examining a ring at the atelier worktable"></div>
 </div>
 </div>
 </section>
@@ -455,7 +498,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;padding-top:6px">
 <a href="tel:4054165034" style="border:1px solid #A4BAC2;background:#A4BAC2;color:#15323C;padding:15px 30px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-bottom-color:#A4BAC2" style-hover="background:transparent;color:#A4BAC2">Call 405.416.5034</a>
 <a href="sms:8557726935" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Text 855.772.6935</a>
-<button onClick="{{ goContact }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82);border-bottom:1px solid rgba(244,246,246,.3);padding-bottom:3px" style-hover="color:#F4F6F6">Book a Design Session →</button>
+<button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,246,.82)" style-hover="color:#F4F6F6">Begin Your Design Session</button>
 </div>
 </div>
 </section>
@@ -527,7 +570,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 
 <div style="display:flex;flex-direction:column;gap:14px">
 <span style="font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#A4BAC2">On the home page</span>
-<sc-for list="{{ footerSections }}" as="s" hint-placeholder-count="4">
+<sc-for list="{{ footerSections }}" as="s" hint-placeholder-count="5">
 <button onClick="{{ s.onClick }}" style="text-align:left;font-size:13.5px;letter-spacing:.03em;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">{{ s.label }}</button>
 </sc-for>
 </div>
@@ -537,7 +580,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <button onClick="{{ goEditions }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Editions</button>
 <button onClick="{{ goContact }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Contact</button>
 <button onClick="{{ goFaqPage }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Frequently Asked</button>
-<button onClick="{{ goContact }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Book a Design Session</button>
+<button onClick="{{ openInvitation }}" style="text-align:left;font-size:13.5px;color:rgba(244,246,246,.72)" style-hover="color:#F4F6F6">Begin Your Design Session</button>
 <a href="https://ovoeustores.zcrmportals.com/portal/OvoeuStores/crm/login.sas" style="font-size:13.5px;color:rgba(244,246,246,.72);border-bottom-color:transparent">Client Portal</a>
 </div>
 
@@ -565,10 +608,37 @@ a:hover{color:#2F6072;border-color:#2F6072}
 
 </div>
 
+<sc-if value="{{ invitationOpen }}" hint-placeholder-val="{{ false }}">
+<div class="ov-invite-layer">
+<button type="button" class="ov-invite-backdrop" onClick="{{ closeInvitation }}" aria-label="Close Design Session invitation" tabindex="-1"></button>
+<aside id="ov-invitation-panel" class="ov-invite-panel" role="dialog" aria-modal="true" aria-labelledby="ov-invite-title" aria-describedby="ov-invite-copy">
+<button type="button" id="ov-invite-close" class="ov-invite-close" onClick="{{ closeInvitation }}" aria-label="Close Design Session invitation">×</button>
+<img class="ov-invite-mark" src="assets/ovoeu-icon.png" alt="">
+<h2 id="ov-invite-title" class="ov-invite-title">Begin your<br>Design Session</h2>
+<p id="ov-invite-copy" class="ov-invite-copy">At the Ovoeu Atelier in Oklahoma City, or virtually from anywhere in the country. Choose how you would like to meet.</p>
+<div class="ov-invite-choices" aria-label="Choose your Design Session">
+<button type="button" class="ov-invite-choice" onClick="{{ bookAtelier }}" aria-label="At the Atelier, 60 to 90 minutes, complimentary. Opens scheduling in a new tab.">
+<span class="ov-invite-choice-name">At the Atelier</span>
+<span class="ov-invite-choice-meta">60–90 minutes · Complimentary</span>
+<span class="ov-invite-choice-arrow" aria-hidden="true">→</span>
+</button>
+<button type="button" class="ov-invite-choice" onClick="{{ bookVirtual }}" aria-label="Virtual, 60 to 90 minutes, complimentary. Opens scheduling in a new tab.">
+<span class="ov-invite-choice-name">Virtual</span>
+<span class="ov-invite-choice-meta">60–90 minutes · Complimentary</span>
+<span class="ov-invite-choice-arrow" aria-hidden="true">→</span>
+</button>
+</div>
+<p class="ov-invite-contact">Prefer to talk first? <a href="tel:4054165034">Call 405.416.5034</a>, <a href="sms:8557726935">text 855.772.6935</a>, or write to <a href="mailto:hello@ovoeu.com">hello@ovoeu.com</a>.</p>
+</aside>
+</div>
+</sc-if>
+
+</div>
+
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'home', active: 'journey', faq: 0, subscribed: false };
+  state = { route: 'home', active: 'journey', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false };
 
   secIds = ['journey', 'difference', 'atelier', 'editions-preview', 'book', 'faq'];
 
@@ -585,22 +655,172 @@ class Component extends DCLogic {
       const next = map[cur] || cur;
       if (next !== this.state.active) this.setState({ active: next });
     };
+    this.onKeyDown = (event) => {
+      if (this.state.invitationOpen) {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          this.closeInvitation();
+          return;
+        }
+        if (event.key === 'Tab') this.trapFocus(event, document.getElementById('ov-invitation-panel'));
+        return;
+      }
+      if (this.state.menuOpen) {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          this.closeMenu();
+          return;
+        }
+        if (event.key === 'Tab') {
+          const drawer = document.getElementById('ov-mobile-drawer');
+          const menuButton = document.getElementById('ov-mobile-menu-button');
+          this.trapFocus(event, drawer, menuButton ? [menuButton] : []);
+        }
+      }
+    };
+    this.onResize = () => {
+      if (window.innerWidth > 960 && this.state.menuOpen) this.closeMenu(false);
+    };
     window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKeyDown);
+    window.addEventListener('resize', this.onResize, { passive: true });
     this.onScroll();
   }
-  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKeyDown);
+    window.removeEventListener('resize', this.onResize);
+    this.setPageInert(false);
+    this.setMenuInert(false);
+    document.body.style.overflow = '';
+  }
+
+  trapFocus(event, container, prefix = []) {
+    if (!container) return;
+    const inside = Array.from(container.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'));
+    const focusable = prefix.concat(inside).filter((node, index, list) => node && list.indexOf(node) === index);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  setPageInert(value) {
+    const page = document.getElementById('ov-page-shell');
+    if (!page) return;
+    if (value) {
+      page.setAttribute('inert', '');
+      page.setAttribute('aria-hidden', 'true');
+    } else {
+      page.removeAttribute('inert');
+      page.removeAttribute('aria-hidden');
+    }
+  }
+
+  setMenuInert(value) {
+    const targets = [document.getElementById('main-content'), document.querySelector('footer')];
+    targets.forEach((target) => {
+      if (!target) return;
+      if (value) {
+        target.setAttribute('inert', '');
+        target.setAttribute('aria-hidden', 'true');
+      } else {
+        target.removeAttribute('inert');
+        target.removeAttribute('aria-hidden');
+      }
+    });
+  }
+
+  openInvitation() {
+    this.returnFocus = document.activeElement;
+    this.setState({ invitationOpen: true, menuOpen: false }, () => {
+      this.setMenuInert(false);
+      document.body.style.overflow = 'hidden';
+      this.setPageInert(true);
+      requestAnimationFrame(() => {
+        const close = document.getElementById('ov-invite-close');
+        if (close) close.focus();
+      });
+    });
+  }
+
+  closeInvitation(restore = true) {
+    this.setState({ invitationOpen: false }, () => {
+      this.setPageInert(false);
+      document.body.style.overflow = '';
+      if (restore) {
+        const fallback = Array.from(document.querySelectorAll('.ov-invitation-cta,.ov-mobile-begin,.ov-mobile-menu')).find((node) => node.offsetParent !== null);
+        const target = this.returnFocus && document.contains(this.returnFocus) ? this.returnFocus : fallback;
+        if (target) target.focus();
+      }
+    });
+  }
+
+  toggleMenu() {
+    const opening = !this.state.menuOpen;
+    if (opening) this.menuReturnFocus = document.activeElement;
+    this.setState({ menuOpen: opening }, () => {
+      document.body.style.overflow = opening ? 'hidden' : '';
+      this.setMenuInert(opening);
+      if (opening) requestAnimationFrame(() => {
+        const first = document.querySelector('#ov-mobile-drawer .ov-nav-button');
+        if (first) first.focus();
+      });
+    });
+  }
+
+  closeMenu(restore = true) {
+    this.setState({ menuOpen: false }, () => {
+      this.setMenuInert(false);
+      document.body.style.overflow = '';
+      if (restore) {
+        const target = this.menuReturnFocus && document.contains(this.menuReturnFocus) ? this.menuReturnFocus : document.getElementById('ov-mobile-menu-button');
+        if (target) target.focus();
+      }
+    });
+  }
+
+  bookAtelier() {
+    window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041174', '_blank', 'noopener');
+    this.closeInvitation(false);
+  }
+
+  bookVirtual() {
+    window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041010', '_blank', 'noopener');
+    this.closeInvitation(false);
+  }
 
   top() { window.scrollTo({ top: 0, behavior: 'auto' }); }
 
-  go(route) { this.setState({ route }, () => this.top()); }
+  go(route) {
+    this.setState({ route, menuOpen: false }, () => {
+      this.setMenuInert(false);
+      document.body.style.overflow = '';
+      this.top();
+      requestAnimationFrame(() => {
+        const main = document.getElementById('main-content');
+        if (main) main.focus({ preventScroll: true });
+      });
+    });
+  }
 
   jump(id) {
     const doIt = () => {
       const el = document.getElementById('sec-' + id);
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' });
+      if (el) {
+        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: reduced ? 'auto' : 'smooth' });
+      }
     };
-    if (this.state.route !== 'home') this.setState({ route: 'home', active: id }, () => requestAnimationFrame(() => requestAnimationFrame(doIt)));
-    else { this.setState({ active: id }); doIt(); }
+    this.setMenuInert(false);
+    document.body.style.overflow = '';
+    if (this.state.route !== 'home') this.setState({ route: 'home', active: id, menuOpen: false }, () => requestAnimationFrame(() => requestAnimationFrame(doIt)));
+    else { this.setState({ active: id, menuOpen: false }); doIt(); }
   }
 
   renderVals() {
@@ -609,21 +829,18 @@ class Component extends DCLogic {
     const teal = '#15323C', gold = '#2F6072';
 
     const tabDefs = [
-      ['journey', 'Toward the Vow', 'sec'],
-      ['difference', 'The Difference', 'sec'],
+      ['home', 'Home', 'home'],
       ['atelier', 'The Atelier', 'sec'],
-      ['editions', 'Editions', 'page', true],
-      ['book', 'Book', 'sec'],
-      ['faq', 'FAQ', 'sec']
+      ['editions', 'Editions', 'page'],
+      ['virtual', 'Virtual Design Sessions', 'invite'],
+      ['difference', 'The Discovery Board', 'sec']
     ];
 
-    const mk = (id, label, kind, soon) => {
-      const on = kind === 'sec' ? ((isHome && this.state.active === id) || (id === 'faq' && route === 'faq-all')) : route === id;
+    const mk = (id, label, kind) => {
+      const on = kind === 'home' ? (isHome && this.state.active === 'journey') : (kind === 'sec' ? (isHome && this.state.active === id) : (kind === 'page' && route === id));
+      const onClick = kind === 'home' ? () => this.go('home') : (kind === 'sec' ? () => this.jump(id) : (kind === 'invite' ? () => this.openInvitation() : () => this.go(id)));
       return {
-        id, label, soon: !!soon,
-        onClick: kind === 'sec' ? () => this.jump(id) : () => this.go(id),
-        labelStyle: { color: on ? teal : 'rgba(21,50,60,.72)', fontWeight: on ? 500 : 400 },
-        rule: { display: 'block', width: '100%', height: '1px', marginTop: '7px', background: on ? '#2F6072' : 'transparent', transition: 'background .25s ease' }
+        id, label, onClick, ariaCurrent: on ? (kind === 'sec' ? 'location' : 'page') : 'false'
       };
     };
 
@@ -636,9 +853,9 @@ class Component extends DCLogic {
     ];
 
     const editions = [
-      { tag: 'Edition 01', name: 'Bearing', note: 'A low oval on a knife-edge band, made to disappear under a work glove.', slot: 'Edition 01 · Bearing' },
-      { tag: 'Edition 02', name: 'Threshold', note: 'Three stones: what was, what is, what is still ahead.', slot: 'Edition 02 · Threshold' },
-      { tag: 'Edition 03', name: 'Quiet Signet', note: 'Engraved inside only, where no one else reads it.', slot: 'Edition 03 · Quiet Signet' }
+      { tag: 'Edition 01', name: 'A Life, Collected.', note: 'Stackable rings, made to mark what comes next.', slot: 'Edition 01 · A Life, Collected.' },
+      { tag: 'Edition 02', name: 'Beloved Isle', note: 'Sculptural reef, shaped as a cuff.', slot: 'Edition 02 · Beloved Isle' },
+      { tag: 'Edition 03', name: 'The Wall', note: 'Beloved Isle, drawn close to the heart.', slot: 'Edition 03 · The Wall' }
     ];
 
     const shopSoon = [
@@ -649,9 +866,9 @@ class Component extends DCLogic {
     ];
 
     const faqSrc = [
-      { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing sold.' },
-      { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. The difference: transparent origin, better quality at larger sizes, no sourcing questions to answer, and prices that let us design freely without cutting corners on craft.' },
-      { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation. Your Ovoeu Concierge walks you through lab-grown stones, metal options, and design language. We build your Discovery Board together, a shared visual reference for your ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' }
+      { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing pushed.' },
+      { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. Their traceable origin and exceptional value give us greater freedom to design without cutting corners on craft.' },
+      { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation led directly by Ovoeu’s founder and jeweler. Together, you explore lab-grown stones, design language, and guided digital iterations while building your Discovery Board: a shared visual reference for the ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' }
     ];
     const faqs = faqSrc.map((f, i) => {
       const open = this.state.faq === i;
@@ -667,27 +884,27 @@ class Component extends DCLogic {
       { no: '01', label: 'Call the atelier', hint: '405.416.5034', act: () => { window.location.href = 'tel:4054165034'; } },
       { no: '02', label: 'Text us', hint: '855.772.6935 · Quick questions, quick answers', act: () => { window.location.href = 'sms:8557726935'; } },
       { no: '03', label: 'Email us', hint: 'hello@ovoeu.com', act: () => { window.location.href = 'mailto:hello@ovoeu.com'; } },
-      { no: '04', label: 'Book a Design Session', hint: 'In the Oklahoma City atelier · Complimentary, 60–90 minutes', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041174', '_blank') },
-      { no: '05', label: 'Book a virtual session', hint: 'From anywhere in the country · Complimentary', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041010', '_blank') },
+      { no: '04', label: 'Begin at the Atelier', hint: 'Oklahoma City · Complimentary, 60–90 minutes', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041174', '_blank', 'noopener') },
+      { no: '05', label: 'Begin virtually', hint: 'From anywhere in the country · Complimentary, 60–90 minutes', act: () => window.open('https://ovoeu-appointments.zohobookings.com/portal-embed#/4685460000000041010', '_blank', 'noopener') },
       { no: '06', label: 'Visit us', hint: '7527 North May Avenue, Oklahoma City · Monday–Saturday, 10:00AM–6:00PM · By appointment', act: () => window.open('https://www.google.com/maps/place/Ovoeu/data=!4m2!3m1!1s0x0:0x365b8a39c4578de8', '_blank') }
     ];
 
     const faqGroups = [
       { no: '01', title: 'The atelier', items: [
-        { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing sold.' },
-        { q: 'Do you have a showroom I can visit?', a: 'The Ovoeu Atelier is at 7527 North May Avenue in Oklahoma City. It is a working atelier rather than a traditional showroom. Quiet, unhurried, by appointment. Please book a Design Session before visiting so your Concierge can be prepared for you specifically.' }
+        { q: 'What is Ovoeu?', a: 'Ovoeu is an atelier of lab-grown jewelry, hand-finished for one couple at a time. We design bespoke engagement rings and fine jewelry through unhurried Design Sessions at our Oklahoma City atelier, or virtually from anywhere in the country. Nothing pulled from a case. Nothing rushed. Nothing pushed.' },
+        { q: 'Do you have a showroom I can visit?', a: 'The Ovoeu Atelier is at 7527 North May Avenue in Oklahoma City. It is a working atelier rather than a traditional showroom. Quiet, unhurried, by appointment. Please book a Design Session before visiting so the founder and jeweler can prepare for you specifically.' }
       ] },
       { no: '02', title: 'Lab-grown diamonds', items: [
-        { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. The difference: transparent origin, better quality at larger sizes, no sourcing questions to answer, and prices that let us design freely without cutting corners on craft.' },
+        { q: 'Why lab-grown diamonds?', a: 'Lab-grown diamonds have the exact chemical, physical, and optical properties of mined diamonds: they are diamonds, grown in a controlled environment instead of pulled from the earth. Their traceable origin and exceptional value give us greater freedom to design without cutting corners on craft.' },
         { q: 'Can I bring in a stone or metal I already own?', a: 'Yes. Heirloom stones, previously purchased diamonds, or existing metal can be incorporated into a new Ovoeu design. Bring the piece to your Design Session, or ship it in for a Virtual Design Session, and we will build the design around what you already have.' }
       ] },
       { no: '03', title: 'Design Sessions & process', items: [
-        { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation. Your Ovoeu Concierge walks you through lab-grown stones, metal options, and design language. We build your Discovery Board together, a shared visual reference for your ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' },
-        { q: 'How long does the process take?', a: 'Most engagement rings take 8 to 12 weeks from your first Design Session to delivery. This includes Discovery Board, CAD refinement, prototype approval, and hand-finishing at our Los Angeles and New York workshops. Faster timelines can be arranged when needed. Please tell your Concierge your date early.' }
+        { q: 'What happens in a Design Session?', a: 'A Design Session is an unhurried conversation led directly by Ovoeu’s founder and jeweler. Together, you explore lab-grown stones, design language, and guided digital iterations while building your Discovery Board: a shared visual reference for the ring. There is no pressure, nothing to buy, and nothing to decide during your first session. Complimentary. Typically 60 to 90 minutes.' },
+        { q: 'How long does the process take?', a: 'Most engagement rings take 8 to 12 weeks from your first Design Session to delivery. This includes the Discovery Board, Technical Drawing refinement, prototype approval, and hand-finishing by our specialist bench jewelers in Los Angeles and New York. Faster timelines can be arranged when needed. Please share your date with us early.' }
       ] },
       { no: '04', title: 'Cost & commitment', items: [
-        { q: 'What does an Ovoeu ring cost?', a: 'Bespoke pricing depends on the stone, the metal, and the complexity of the setting. Ovoeu rings typically range from the mid-thousands to the mid-tens of thousands. Every quote is fully transparent, itemized, and free of retail markup layers. Your Concierge will build a working budget with you during your Design Session.' },
-        { q: 'When do I actually commit financially?', a: 'The Design Session and CAD phase are fully complimentary. No deposit, no commitment. At the prototype stage we collect a $250 deposit, which covers the exact cost of casting your silver prototype and shipping it to you. That deposit is applied in full toward your final ring if you proceed to production. If you decide not to proceed, the deposit covers the prototype, which is yours to keep. The only major financial commitment happens when you approve the final piece for casting in gold or platinum.' }
+        { q: 'What does an Ovoeu ring cost?', a: 'Bespoke pricing depends on the stone, the metal, and the complexity of the setting. Ovoeu rings typically range from the mid-thousands to the mid-tens of thousands. Every quote is fully transparent and itemized. We build a working budget with you during your Design Session.' },
+        { q: 'When do I actually commit financially?', a: 'The Design Session and Technical Drawing phase are fully complimentary. No deposit, no commitment. At the prototype stage we collect a $250 deposit, which covers the exact cost of casting your silver prototype and shipping it to you. That deposit is applied in full toward your final ring if you proceed to the workshop. If you decide not to proceed, the deposit covers the prototype, which is yours to keep. Your major financial commitment begins only when you approve the final piece for casting in gold or platinum.' }
       ] }
     ];
 
@@ -701,8 +918,9 @@ class Component extends DCLogic {
 
     const footerSections = [
       { label: 'Toward the Vow', onClick: () => this.jump('journey') },
-      { label: 'The Ovoeu Difference', onClick: () => this.jump('difference') },
+      { label: 'The Discovery Board', onClick: () => this.jump('difference') },
       { label: 'Inside the Atelier', onClick: () => this.jump('atelier') },
+      { label: 'Your Story', onClick: () => this.jump('story') },
       { label: 'Latest from Editions', onClick: () => this.jump('editions-preview') }
     ];
 
@@ -774,10 +992,19 @@ class Component extends DCLogic {
       showEditionsPreview: this.props.showEditionsPreview ?? true,
       editionsTeaser: (this.props.editionsMode ?? 'Email capture') === 'Email capture',
       subscribed: this.state.subscribed, notSubscribed: !this.state.subscribed,
+      invitationOpen: this.state.invitationOpen,
+      menuOpen: this.state.menuOpen,
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
+      menuLabel: this.state.menuOpen ? 'Close' : 'Menu',
       goHome: () => this.go('home'),
       goEditions: () => this.go('editions'),
       goContact: () => this.go('contact'),
       goFaqPage: () => this.go('faq-all'),
+      openInvitation: () => this.openInvitation(),
+      closeInvitation: () => this.closeInvitation(),
+      toggleMenu: () => this.toggleMenu(),
+      bookAtelier: () => this.bookAtelier(),
+      bookVirtual: () => this.bookVirtual(),
       conciergeRule: { display: 'block', width: '100%', height: '1px', background: route === 'contact' ? '#2F6072' : 'transparent', transition: 'background .25s ease' },
       toJourney: () => this.jump('journey'),
       onSubscribe: (e) => { e.preventDefault(); this.setState({ subscribed: true }); }
