@@ -245,7 +245,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">Begin your own story</button>
 </div>
 <div style="padding-top:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;gap:24px">
-<div style="width:100%;max-width:520px;aspect-ratio:4/5;overflow:hidden;background:#EEE8DE;display:flex;align-items:center;justify-content:center">
+<div onMouseEnter="{{ pauseStory }}" onMouseLeave="{{ resumeStory }}" onTouchStart="{{ pauseStory }}" onTouchEnd="{{ resumeStory }}" style="width:100%;max-width:520px;aspect-ratio:4/5;overflow:hidden;background:#EEE8DE;display:flex;align-items:center;justify-content:center">
 <img src="{{ currentStory.image }}" alt="A real Ovoeu couple's story, presented alongside their ring" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain">
 </div>
 <sc-if value="{{ showStoryNav }}" hint-placeholder-val="{{ false }}">
@@ -723,14 +723,24 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this.onKeyDown);
     window.addEventListener('resize', this.onResize, { passive: true });
     this.onScroll();
+    this.startStoryTimer();
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('keydown', this.onKeyDown);
     window.removeEventListener('resize', this.onResize);
+    clearInterval(this.storyTimer);
     this.setPageInert(false);
     this.setMenuInert(false);
     document.body.style.overflow = '';
+  }
+
+  startStoryTimer() {
+    clearInterval(this.storyTimer);
+    this.storyTimer = setInterval(() => {
+      if (this.storyPaused || !this.storyCount || this.storyCount <= 1) return;
+      this.setState((s) => ({ storyIndex: (s.storyIndex + 1) % this.storyCount }));
+    }, 2000);
   }
 
   trapFocus(event, container, prefix = []) {
@@ -873,12 +883,15 @@ class Component extends DCLogic {
     ];
     const hasStories = stories.length > 0;
     const storyCount = stories.length;
+    this.storyCount = storyCount;
     const storyIndex = hasStories ? ((this.state.storyIndex % storyCount) + storyCount) % storyCount : 0;
     const currentStory = hasStories ? stories[storyIndex] : null;
-    const prevStory = () => this.setState({ storyIndex: (storyIndex - 1 + storyCount) % storyCount });
-    const nextStory = () => this.setState({ storyIndex: (storyIndex + 1) % storyCount });
+    const prevStory = () => { this.setState({ storyIndex: (storyIndex - 1 + storyCount) % storyCount }); this.startStoryTimer(); };
+    const nextStory = () => { this.setState({ storyIndex: (storyIndex + 1) % storyCount }); this.startStoryTimer(); };
+    const pauseStory = () => { this.storyPaused = true; };
+    const resumeStory = () => { this.storyPaused = false; };
     const storyDots = stories.map((s, i) => ({
-      onClick: () => this.setState({ storyIndex: i }),
+      onClick: () => { this.setState({ storyIndex: i }); this.startStoryTimer(); },
       style: { width: '7px', height: '7px', borderRadius: '50%', background: i === storyIndex ? '#15323C' : 'rgba(21,50,60,.25)', transition: 'background .2s ease' }
     }));
 
@@ -1048,7 +1061,7 @@ class Component extends DCLogic {
       policyMeta: pol ? pol.meta : '',
       policyBlocks: pol ? pol.blocks : [],
       tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
-      hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1,
+      hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1, pauseStory, resumeStory,
       hasBespoke, bespokeItems,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
