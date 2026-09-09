@@ -84,7 +84,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 .ov-media-image{display:block;width:100%;height:100%;object-fit:cover}
 .ov-coverflow-track{display:flex;align-items:center;justify-content:center;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px calc(50% - 130px);scrollbar-width:none}
 .ov-coverflow-track::-webkit-scrollbar{display:none}
-.ov-coverflow-card{flex:none;width:260px;aspect-ratio:4/5;scroll-snap-align:center;overflow:hidden;background:#15323C;border:1px solid rgba(21,50,60,.12);transition:transform .35s cubic-bezier(.22,.72,.28,1),opacity .35s ease,filter .35s ease}
+.ov-coverflow-card{flex:none;display:block;width:260px;aspect-ratio:4/5;padding:0;margin:0;appearance:none;-webkit-appearance:none;cursor:pointer;scroll-snap-align:center;overflow:hidden;background:#15323C;border:1px solid rgba(21,50,60,.12);transition:transform .35s cubic-bezier(.22,.72,.28,1),opacity .35s ease,filter .35s ease}
 .ov-coverflow-arrow{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(21,50,60,.25);border-radius:50%;font-size:16px;color:#15323C;transition:opacity .2s ease}
 .ov-coverflow-arrow[data-disabled="true"]{opacity:.32;pointer-events:none}
 .ov-editions-banner{display:block;width:100%;overflow:hidden;border:1px solid rgba(21,50,60,.12);background:#F4F1E9;text-align:left}
@@ -199,14 +199,14 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 <div id="bespoke-track" class="ov-coverflow-track">
 <sc-for list="{{ bespokeItems }}" as="m" hint-placeholder-count="2">
-<div class="ov-coverflow-card" style="{{ m.cardStyle }}">
+<button type="button" class="ov-coverflow-card" onClick="{{ m.onClick }}" aria-label="View this piece" style="{{ m.cardStyle }}">
 <sc-if value="{{ m.isVideo }}" hint-placeholder-val="{{ true }}">
 <video src="{{ m.src }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" class="ov-media-image" aria-label="A finished Ovoeu bespoke piece, shown without the client's name"></video>
 </sc-if>
 <sc-if value="{{ m.isImage }}" hint-placeholder-val="{{ false }}">
 <img src="{{ m.src }}" class="ov-media-image" alt="A finished Ovoeu bespoke piece, shown without the client's name">
 </sc-if>
-</div>
+</button>
 </sc-for>
 </div>
 <sc-if value="{{ showBespokeNav }}" hint-placeholder-val="{{ false }}">
@@ -961,7 +961,8 @@ class Component extends DCLogic {
         src: item.src,
         isVideo: item.type === 'video',
         isImage: item.type !== 'video',
-        cardStyle: { transform: 'scale(' + scale + ')', opacity, zIndex: String(10 - absDist), filter: absDist === 0 ? 'none' : 'saturate(.85)' }
+        cardStyle: { transform: 'scale(' + scale + ')', opacity, zIndex: String(10 - absDist), filter: absDist === 0 ? 'none' : 'saturate(.85)' },
+        onClick: () => { this.setState({ bespokeIndex: i }); this.scrollBespokeTo(i); }
       };
     });
     const bespokePrevDisabled = bespokeIndex === 0 ? 'true' : 'false';
