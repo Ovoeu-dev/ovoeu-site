@@ -50,7 +50,7 @@ a:hover{color:#2F6072;border-color:#2F6072}
 .ov-text-link{position:relative;display:inline-block;padding-bottom:7px!important;border-bottom:0!important}
 .ov-text-link::after{position:absolute;right:50%;bottom:2px;left:50%;height:1px;content:"";background:currentColor;opacity:.7;transition:right .22s ease,left .22s ease}
 .ov-text-link:hover::after{right:0;left:0}
-.ov-mobile-menu,.ov-mobile-begin{display:none}
+.ov-mobile-menu{display:none}
 .ov-mobile-drawer{position:fixed;z-index:48;top:68px;right:0;bottom:0;left:0;overflow:auto;padding:46px 28px 34px;color:#15323C;background:#F4F1E9;animation:ovMenuIn .28s ease both}
 .ov-mobile-nav{display:grid;align-content:start}
 .ov-mobile-nav .ov-nav-button{min-height:58px;padding:6px 0;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(31px,9vw,46px);letter-spacing:0;line-height:1.08;text-align:left;text-transform:none}
@@ -852,7 +852,7 @@ class Component extends DCLogic {
       this.setPageInert(false);
       document.body.style.overflow = '';
       if (restore) {
-        const fallback = Array.from(document.querySelectorAll('.ov-invitation-cta,.ov-mobile-begin,.ov-mobile-menu')).find((node) => node.offsetParent !== null);
+        const fallback = Array.from(document.querySelectorAll('.ov-invitation-cta,.ov-mobile-menu')).find((node) => node.offsetParent !== null);
         const target = this.returnFocus && document.contains(this.returnFocus) ? this.returnFocus : fallback;
         if (target) target.focus();
       }
