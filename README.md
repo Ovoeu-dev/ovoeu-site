@@ -19,7 +19,6 @@ docs/                 what GitHub Pages serves
   support.js
   assets/
   .nojekyll
-SESSION-NOTES.md      design decisions + open items
 ```
 
 ## Making a change
