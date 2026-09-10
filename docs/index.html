@@ -253,39 +253,6 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </div>
 </section>
 
-<!-- Your Story -->
-<sc-if value="{{ hasStories }}" hint-placeholder-val="{{ false }}">
-<section id="sec-story" style="background:#F4F1E9;padding:clamp(64px,8vw,124px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
-<div style="max-width:1280px;margin:0 auto">
-<div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between;padding-bottom:30px;border-bottom:1px solid rgba(21,50,60,.16)">
-<div>
-<p style="margin:0 0 12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#2F6072">Your Story</p>
-<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:.005em">The story behind every ring.</h2>
-<p style="margin:14px 0 0;max-width:52ch;font-size:14.5px;line-height:1.78;color:rgba(21,50,60,.84)">Every Ovoeu ring is built around the two people wearing it. Here are a few of the stories we have had the privilege to design around.</p>
-</div>
-<button class="ov-text-link" onClick="{{ openInvitation }}" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#15323C">Begin your own story</button>
-</div>
-<div style="padding-top:clamp(24px,3vw,40px);display:flex;flex-direction:column;align-items:center;gap:24px">
-<div onMouseEnter="{{ pauseStory }}" onMouseLeave="{{ resumeStory }}" onTouchStart="{{ pauseStory }}" onTouchEnd="{{ resumeStory }}" style="width:100%;max-width:520px;aspect-ratio:4/5;overflow:hidden;background:#EEE8DE;display:flex;align-items:center;justify-content:center">
-<img src="{{ currentStory.image }}" alt="A real Ovoeu couple's story, presented alongside their ring" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain">
-</div>
-<sc-if value="{{ showStoryNav }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;align-items:center;gap:20px">
-<button onClick="{{ prevStory }}" aria-label="Previous story" style="display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(21,50,60,.25);font-size:16px;color:#15323C">←</button>
-<span style="display:flex;gap:8px;align-items:center">
-<sc-for list="{{ storyDots }}" as="d" hint-placeholder-count="3">
-<button onClick="{{ d.onClick }}" aria-label="Go to story" style="{{ d.style }}"></button>
-</sc-for>
-</span>
-<button onClick="{{ nextStory }}" aria-label="Next story" style="display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(21,50,60,.25);font-size:16px;color:#15323C">→</button>
-</div>
-</sc-if>
-</div>
-</div>
-</section>
-</sc-if>
-</section>
-
 <!-- Editions preview -->
 <sc-if value="{{ showEditionsPreview }}" hint-placeholder-val="{{ true }}">
 <section id="sec-editions-preview" style="background:#E9EEF0;padding:clamp(64px,8vw,110px) clamp(20px,5vw,56px);scroll-margin-top:120px;border-top:1px solid rgba(21,50,60,.1)">
@@ -365,9 +332,9 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="max-width:1180px;margin:0 auto">
 <div style="display:flex;flex-wrap:wrap;gap:14px 40px;align-items:baseline;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid rgba(21,50,60,.16)">
 <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.05;letter-spacing:.005em">Now showing</h2>
-<p style="margin:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(21,50,60,.72)">Three editions · Commission by conversation</p>
+<p style="margin:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(21,50,60,.72)">One edition · Commission by conversation</p>
 </div>
-<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
+<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0">
 <div style="display:flex;flex-direction:column;gap:10px">
 <div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-a-life-collected.jpg" alt="A Life, Collected: a stack of slender Ovoeu rings on black atelier felt" style="object-position:right center"></div>
 </div>
@@ -383,48 +350,6 @@ a:hover{color:#2F6072;border-color:#2F6072}
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Stackable bands</span></div>
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Metal</span><span style="font-size:14px;line-height:1.5;color:#15323C">18k yellow gold</span></div>
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Finish</span><span style="font-size:14px;line-height:1.5;color:#15323C">Polished and pavé</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">By conversation</span></div>
-</div>
-<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
-</div>
-</article>
-<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-beloved-isle-cuff.jpg" alt="Beloved Isle: a sculptural reef cuff in Ovoeu blue, gold, and ruby red" style="object-position:left center"></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:20px">
-<div style="display:flex;flex-direction:column;gap:12px">
-<span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 02</span>
-<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">Beloved Isle</h3>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Sculptural reef, shaped as a cuff.</span>
-</div>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Ovoeu blue rises into a shoreline of gold: shells, stones, and coral-like forms gathered around a red center.</p>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Built as an object to discover slowly, from the broad gesture of the silhouette to the smallest hand-finished detail.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Sculptural cuff</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Palette</span><span style="font-size:14px;line-height:1.5;color:#15323C">Ovoeu blue, gold, ruby red</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Technique</span><span style="font-size:14px;line-height:1.5;color:#15323C">Textured relief and stone setting</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">Bespoke scale</span></div>
-</div>
-<button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
-</div>
-</article>
-<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,68px);align-items:start;padding:clamp(40px,5vw,76px) 0;border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="width:100%;aspect-ratio:4/5;overflow:hidden;background:#E9EEF0"><img class="ov-media-image" src="assets/editions-beloved-isle-necklace.jpg" alt="The Wall: a Beloved Isle necklace study in blue and gold" style="object-position:left center"></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:20px">
-<div style="display:flex;flex-direction:column;gap:12px">
-<span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#2F6072">Edition 03</span>
-<h3 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:.005em">The Wall</h3>
-<span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.35;color:#2F6072">Beloved Isle, drawn close to the heart.</span>
-</div>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">A fine gold structure gathers around a deep-blue sculptural form, following the irregular edge of a remembered coastline.</p>
-<p style="margin:0;font-size:clamp(14.5px,1.1vw,16px);line-height:1.82;color:rgba(21,50,60,.84);max-width:52ch">Part jewel, part landscape: a place translated into texture, proportion, and movement.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px 24px;padding:22px 0;border-top:1px solid rgba(21,50,60,.16);border-bottom:1px solid rgba(21,50,60,.16)">
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Form</span><span style="font-size:14px;line-height:1.5;color:#15323C">Sculptural necklace</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Palette</span><span style="font-size:14px;line-height:1.5;color:#15323C">Ovoeu blue and gold</span></div>
-<div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Inspiration</span><span style="font-size:14px;line-height:1.5;color:#15323C">Reef, shoreline, movement</span></div>
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(21,50,60,.72)">Commission</span><span style="font-size:14px;line-height:1.5;color:#15323C">By conversation</span></div>
 </div>
 <button onClick="{{ goContact }}" style="align-self:flex-start;border:1px solid #224C5A;background:#224C5A;color:#F4F6F6;padding:13px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:transparent;color:#224C5A">Ask about this Edition</button>
@@ -697,9 +622,9 @@ a:hover{color:#2F6072;border-color:#2F6072}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHeroVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;showEditionsPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;},&quot;editionsMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Email capture&quot;,&quot;Type only&quot;],&quot;default&quot;:&quot;Email capture&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editions page&quot;}}">
 class Component extends DCLogic {
-  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, storyIndex: 0, bespokeIndex: 0 };
+  state = { route: 'home', active: 'home', faq: 0, subscribed: false, invitationOpen: false, menuOpen: false, bespokeIndex: 0 };
 
-  secIds = ['journey', 'bespoke', 'difference', 'atelier', 'story', 'editions-preview', 'book', 'faq'];
+  secIds = ['journey', 'bespoke', 'difference', 'atelier', 'editions-preview', 'book', 'faq'];
 
   componentDidMount() {
     this.onScroll = () => {
@@ -765,7 +690,6 @@ class Component extends DCLogic {
     const bespokeTrack = document.getElementById('bespoke-track');
     if (bespokeTrack) bespokeTrack.addEventListener('scroll', this.onBespokeScroll, { passive: true });
     this.onScroll();
-    this.startStoryTimer();
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
@@ -773,18 +697,9 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onResize);
     const bespokeTrack = document.getElementById('bespoke-track');
     if (bespokeTrack) bespokeTrack.removeEventListener('scroll', this.onBespokeScroll);
-    clearInterval(this.storyTimer);
     this.setPageInert(false);
     this.setMenuInert(false);
     document.body.style.overflow = '';
-  }
-
-  startStoryTimer() {
-    clearInterval(this.storyTimer);
-    this.storyTimer = setInterval(() => {
-      if (this.storyPaused || !this.storyCount || this.storyCount <= 1) return;
-      this.setState((s) => ({ storyIndex: (s.storyIndex + 1) % this.storyCount }));
-    }, 2000);
   }
 
   scrollBespokeTo(idx) {
@@ -926,20 +841,6 @@ class Component extends DCLogic {
     const isHome = route === 'home';
     const teal = '#15323C', gold = '#2F6072';
 
-    const stories = [];
-    const hasStories = stories.length > 0;
-    const storyCount = stories.length;
-    this.storyCount = storyCount;
-    const storyIndex = hasStories ? ((this.state.storyIndex % storyCount) + storyCount) % storyCount : 0;
-    const currentStory = hasStories ? stories[storyIndex] : null;
-    const prevStory = () => { this.setState({ storyIndex: (storyIndex - 1 + storyCount) % storyCount }); this.startStoryTimer(); };
-    const nextStory = () => { this.setState({ storyIndex: (storyIndex + 1) % storyCount }); this.startStoryTimer(); };
-    const pauseStory = () => { this.storyPaused = true; };
-    const resumeStory = () => { this.storyPaused = false; };
-    const storyDots = stories.map((s, i) => ({
-      onClick: () => { this.setState({ storyIndex: i }); this.startStoryTimer(); },
-      style: { width: '7px', height: '7px', borderRadius: '50%', background: i === storyIndex ? '#15323C' : 'rgba(21,50,60,.25)', transition: 'background .2s ease' }
-    }));
 
     const bespokeRaw = [
       { type: 'video', src: 'assets/bespoke-01.mp4' },
@@ -980,7 +881,6 @@ class Component extends DCLogic {
       ...(hasBespoke ? [['bespoke', 'Bespoke']] : []),
       ['difference', 'The Discovery Board'],
       ['atelier', 'Inside the Atelier'],
-      ...(hasStories ? [['story', 'Your Story']] : []),
       ['editions-preview', 'Latest from Editions']
     ];
 
@@ -995,12 +895,6 @@ class Component extends DCLogic {
       { k: '01', v: 'Couple at a time' },
       { k: '5', v: 'Moments, every ring' },
       { k: '∞', v: 'Lifetime warranty' }
-    ];
-
-    const editions = [
-      { tag: 'Edition 01', name: 'A Life, Collected.', note: 'Stackable rings, made to mark what comes next.', slot: 'Edition 01 · A Life, Collected.' },
-      { tag: 'Edition 02', name: 'Beloved Isle', note: 'Sculptural reef, shaped as a cuff.', slot: 'Edition 02 · Beloved Isle' },
-      { tag: 'Edition 03', name: 'The Wall', note: 'Beloved Isle, drawn close to the heart.', slot: 'Edition 03 · The Wall' }
     ];
 
     const shopSoon = [
@@ -1066,7 +960,6 @@ class Component extends DCLogic {
       ...(hasBespoke ? [{ label: 'Bespoke', onClick: () => this.jump('bespoke') }] : []),
       { label: 'The Discovery Board', onClick: () => this.jump('difference') },
       { label: 'Inside the Atelier', onClick: () => this.jump('atelier') },
-      ...(hasStories ? [{ label: 'Your Story', onClick: () => this.jump('story') }] : []),
       { label: 'Latest from Editions', onClick: () => this.jump('editions-preview') }
     ];
 
@@ -1133,8 +1026,7 @@ class Component extends DCLogic {
       policyTitle: pol ? pol.title : '',
       policyMeta: pol ? pol.meta : '',
       policyBlocks: pol ? pol.blocks : [],
-      tabs, facts, editions, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
-      hasStories, currentStory, prevStory, nextStory, storyDots, showStoryNav: stories.length > 1, pauseStory, resumeStory,
+      tabs, facts, shopSoon, faqs, channels, socials, footerSections, policyLinks, policyNav,
       hasBespoke, bespokeItems, bespokePrev, bespokeNext, bespokePrevDisabled, bespokeNextDisabled, showBespokeNav,
       showHeroVideo: this.props.showHeroVideo ?? false,
       showEditionsPreview: this.props.showEditionsPreview ?? true,
